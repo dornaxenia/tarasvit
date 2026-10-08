@@ -1,0 +1,1355 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ТАРАСВІТ HDPE-тара</title>
+<meta name="description" content="ТАРАСВІТ: HDPE-каністри 1 л і 5 л власного виробництва в Чернігові, кришки, дозатори, тригери та готові комплекти для побутової, професійної й автохімії.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geologica:wght@300;400;500&family=Golos+Text:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: spec-sheet landing. Asymmetric hero (headline left, copy right), tabbed catalog panel,
+   hairline-separated bands. Grid & type logic from the Refero/ElevenLabs system, palette from TARASVIT. */
+:root{
+  --canvas:#F7F9FB; --band:#EDF2F6; --surface:#FCFDFE; --plate:#F3F4F7;
+  --line:#DCE4EC; --line-strong:#C3CFDB;
+  --ink:#012056; --ink-2:#26385A; --muted:#55647B; --faint:#6E7B8F;
+  --accent:#00A5A4; --accent-ink:#00706F; --accent-soft:#DDF3F2;
+  --on-ink:#FFFFFF;
+  --photo-chip-bg:rgba(255,255,255,.86); --photo-chip-fg:#012056; --plate-ink:#00706F;
+  --danger:#B42318; --danger-soft:#FDECEA; --ok:#0F7B4E; --ok-soft:#E3F5EC;
+  --shadow:0 0 0 1px rgba(1,32,86,.05),0 1px 2px rgba(1,32,86,.04),0 8px 24px rgba(1,32,86,.06);
+  --f-display:"Geologica","Golos Text",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-body:"Golos Text",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --f-mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  --r-xl:28px; --r-lg:24px; --r-md:20px; --r-sm:14px; --r-xs:10px;
+  --gutter:clamp(16px,4vw,56px); --maxw:1280px; --header-h:64px;
+  --ease:cubic-bezier(.2,.7,.2,1);
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --canvas:#08111F; --band:#0C1728; --surface:#101C30; --plate:#F3F4F7;
+    --line:#1B293F; --line-strong:#2A3C58;
+    --ink:#E9EFF7; --ink-2:#C6D1DF; --muted:#9AA8BB; --faint:#7F8DA2;
+    --accent:#2BCBC6; --accent-ink:#62DAD5; --accent-soft:#0C3341;
+    --on-ink:#012056;
+    --danger:#FF8F84; --danger-soft:#3A1517; --ok:#4ADE9B; --ok-soft:#0E2E22;
+    --shadow:0 0 0 1px rgba(255,255,255,.05),0 12px 32px rgba(0,0,0,.35);
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --canvas:#08111F; --band:#0C1728; --surface:#101C30; --plate:#F3F4F7;
+  --line:#1B293F; --line-strong:#2A3C58;
+  --ink:#E9EFF7; --ink-2:#C6D1DF; --muted:#9AA8BB; --faint:#7F8DA2;
+  --accent:#2BCBC6; --accent-ink:#62DAD5; --accent-soft:#0C3341;
+  --on-ink:#012056;
+  --danger:#FF8F84; --danger-soft:#3A1517; --ok:#4ADE9B; --ok-soft:#0E2E22;
+  --shadow:0 0 0 1px rgba(255,255,255,.05),0 12px 32px rgba(0,0,0,.35);
+  color-scheme:dark;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0}
+[hidden]{display:none!important}
+html{-webkit-text-size-adjust:100%;scroll-behavior:auto}
+html.lock{overflow:hidden}
+body{background:var(--canvas);color:var(--ink);font:400 16px/1.55 var(--f-body);letter-spacing:.005em;
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit}
+h1,h2,h3,h4,p,ul,ol,dl,dd,figure{margin:0}
+ul,ol{padding:0;list-style:none}
+[id]{scroll-margin-top:calc(var(--header-h) + 16px)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:6px}
+.ic{width:20px;height:20px;flex:none;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.ic-sm{width:16px;height:16px}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.wrap{max-width:var(--maxw);margin-inline:auto;padding-inline:var(--gutter)}
+.tnum{font-variant-numeric:tabular-nums}
+
+/* ---------- Type ---------- */
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font:500 12px/1 var(--f-mono);letter-spacing:.09em;text-transform:uppercase;color:var(--accent-ink)}
+.eyebrow::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--accent)}
+.display{font:300 clamp(36px,5.1vw,62px)/1.04 var(--f-display);letter-spacing:-.028em;text-wrap:balance;color:var(--ink)}
+.h2{font:300 clamp(30px,3.7vw,46px)/1.08 var(--f-display);letter-spacing:-.022em;text-wrap:balance}
+.h3{font:400 clamp(24px,2.4vw,30px)/1.15 var(--f-display);letter-spacing:-.015em;text-wrap:balance}
+.lead{font-size:clamp(16.5px,1.35vw,19px);line-height:1.5;color:var(--muted);max-width:58ch;text-wrap:pretty}
+.mono{font-family:var(--f-mono)}
+
+/* ---------- Buttons ---------- */
+.btn{--h:48px;display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:var(--h);padding:0 22px;
+  border-radius:999px;border:1px solid transparent;font:500 15px/1.1 var(--f-body);letter-spacing:.005em;cursor:pointer;
+  white-space:nowrap;-webkit-tap-highlight-color:transparent;touch-action:manipulation;user-select:none;
+  transition:background-color .18s var(--ease),border-color .18s var(--ease),color .18s var(--ease),transform .12s var(--ease),box-shadow .18s var(--ease)}
+.btn:active{transform:scale(.97)}
+.btn .ic{transition:transform .2s var(--ease)}
+.btn-primary{background:var(--ink);color:var(--on-ink)}
+.btn-outline{background:var(--surface);color:var(--ink);border-color:var(--line-strong)}
+.btn-text{--h:44px;padding:0 4px;color:var(--accent-ink);border-radius:8px;background:transparent}
+.btn-sm{--h:40px;padding:0 16px;font-size:14px}
+.btn-block{width:100%}
+@media (pointer:coarse){.btn-sm{--h:44px}}
+@media (hover:hover){
+  .btn-primary:hover{background:color-mix(in srgb,var(--ink) 86%,var(--accent))}
+  .btn-outline:hover{border-color:var(--ink)}
+  .btn-text:hover{color:var(--ink)}
+  .btn:hover .ic{transform:translateX(2px)}
+}
+.btn[disabled]{opacity:.7;cursor:progress}
+.btn.is-loading .btn-label{opacity:0}
+.btn.is-loading{position:relative}
+.btn.is-loading::after{content:"";position:absolute;width:18px;height:18px;border-radius:50%;border:2px solid currentColor;border-right-color:transparent;animation:spin .7s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* ---------- Header ---------- */
+.site-header{position:sticky;top:env(safe-area-inset-top,0px);z-index:60;background:color-mix(in srgb,var(--canvas) 88%,transparent);
+  -webkit-backdrop-filter:saturate(1.4) blur(14px);backdrop-filter:saturate(1.4) blur(14px);border-bottom:1px solid transparent;transition:border-color .2s}
+.site-header.is-scrolled{border-bottom-color:var(--line)}
+.hdr{display:flex;align-items:center;gap:20px;height:var(--header-h)}
+.logo{display:flex;align-items:center;flex:none;min-height:44px}
+.logo img{height:26px;width:auto}
+.logo-d{display:none}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .logo-l{display:none}:root:not([data-theme="light"]) .logo-d{display:block}}
+:root[data-theme="dark"] .logo-l{display:none}:root[data-theme="dark"] .logo-d{display:block}
+.nav{display:flex;gap:2px;margin-left:12px}
+.nav a{padding:10px 12px;border-radius:999px;font-size:14.5px;font-weight:500;color:var(--ink-2);transition:background-color .15s,color .15s}
+@media (hover:hover){.nav a:hover{background:var(--band);color:var(--ink)}}
+.hdr-right{margin-left:auto;display:flex;align-items:center;gap:14px}
+.hdr-phone{font:500 14px/1 var(--f-mono);color:var(--ink);letter-spacing:-.01em;padding:10px 4px}
+.menu-btn{display:none;width:44px;height:44px;border-radius:999px;border:1px solid var(--line-strong);background:var(--surface);align-items:center;justify-content:center;cursor:pointer}
+.mnav{position:fixed;inset:calc(var(--header-h) + env(safe-area-inset-top,0px)) 0 0 0;z-index:55;background:var(--canvas);padding:8px var(--gutter) calc(24px + env(safe-area-inset-bottom,0px));overflow:auto;border-top:1px solid var(--line)}
+.mnav a.mlink{display:flex;align-items:center;justify-content:space-between;min-height:56px;border-bottom:1px solid var(--line);font:400 22px/1.2 var(--f-display);letter-spacing:-.01em}
+.mnav .mnav-foot{display:grid;gap:12px;margin-top:24px}
+.mnav .mnav-phone{font:500 20px/1.2 var(--f-mono)}
+@media (max-width:1180px){.hdr-phone{display:none}}
+@media (max-width:980px){.nav{display:none}.menu-btn{display:inline-flex}.hdr-cta{display:none}}
+@media (max-width:640px){:root{--header-h:58px}.logo img{height:22px}}
+
+/* ---------- Hero ---------- */
+.hero{padding-block:clamp(28px,5vw,64px) clamp(40px,5vw,72px)}
+.hero-grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:clamp(16px,2.4vw,32px);row-gap:clamp(24px,3vw,36px)}
+.hero-copy{grid-column:1/8;display:grid;gap:22px;align-content:end}
+.hero-side{grid-column:8/13;display:grid;gap:22px;align-content:end}
+.hero-ctas{display:flex;flex-wrap:wrap;gap:10px}
+.manager{display:flex;align-items:center;gap:12px;padding-top:16px;border-top:1px solid var(--line)}
+.avatar{width:44px;height:44px;border-radius:50%;flex:none;display:grid;place-items:center;background:var(--ink);color:var(--on-ink);font:500 14px/1 var(--f-mono);letter-spacing:.02em}
+.manager-meta{display:grid;gap:2px;min-width:0}
+.manager-meta small{font-size:12.5px;color:var(--faint)}
+.manager-line{display:flex;flex-wrap:wrap;align-items:center;gap:4px 10px;font-size:14.5px;color:var(--ink-2)}
+.manager-line a{font:500 15px/1.3 var(--f-mono);color:var(--ink)}
+.hero-media{grid-column:1/8;position:relative;border-radius:var(--r-xl);overflow:hidden;background:var(--plate);aspect-ratio:16/10;max-width:100%}
+.hero-media img{width:100%;height:100%;object-fit:cover;object-position:60% 55%}
+.photo-chips{position:absolute;left:16px;bottom:16px;right:16px;display:flex;flex-wrap:wrap;gap:8px}
+.photo-chip{padding:7px 12px;border-radius:999px;background:var(--photo-chip-bg);color:var(--photo-chip-fg);font:500 12.5px/1.2 var(--f-mono);
+  -webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);box-shadow:0 1px 2px rgba(1,32,86,.08)}
+.directions{grid-column:8/13;display:grid;gap:12px;align-content:stretch}
+.dir{display:grid;grid-template-columns:76px minmax(0,1fr) auto;gap:16px;align-items:center;padding:14px 18px 14px 14px;border-radius:var(--r-md);
+  background:var(--surface);border:1px solid var(--line);transition:border-color .18s var(--ease),transform .18s var(--ease),box-shadow .18s var(--ease)}
+.dir-plate{position:relative;width:76px;height:76px;border-radius:14px;background:var(--plate);overflow:hidden}
+.dir-plate img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
+.dir-body{display:grid;gap:4px;min-width:0}
+.dir-top{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.dir-title{font:400 21px/1.15 var(--f-display);letter-spacing:-.01em}
+.dir-meta{font:500 12px/1 var(--f-mono);color:var(--accent-ink)}
+.dir-text{font-size:14px;line-height:1.45;color:var(--muted)}
+.dir-cta{display:inline-flex;align-items:center;gap:6px;font-size:14px;font-weight:500;color:var(--ink);white-space:nowrap}
+.dir-go{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;border:1px solid var(--line-strong);color:var(--ink);transition:background-color .18s,color .18s,border-color .18s}
+@media (hover:hover){.dir:hover{border-color:var(--line-strong);box-shadow:var(--shadow)}.dir:hover .dir-go{background:var(--ink);color:var(--on-ink);border-color:var(--ink)}}
+.dir:active{transform:scale(.99)}
+.dir-chips{display:none}
+.spec-rail{margin-top:clamp(28px,4vw,48px);padding-top:18px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:8px 22px;font:400 13px/1.5 var(--f-mono);color:var(--muted)}
+.spec-rail li{display:flex;align-items:center;gap:8px}
+.spec-rail li::before{content:"";width:5px;height:5px;border-radius:1px;background:var(--accent);transform:rotate(45deg)}
+
+@media (max-width:980px){
+  .hero-copy,.hero-side,.hero-media,.directions{grid-column:1/-1}
+  .hero-media{aspect-ratio:4/3}
+  .directions{grid-template-columns:1fr}
+}
+@media (max-width:640px){
+  .hero{padding-top:20px}
+  .hero-copy{gap:16px}.hero-side{gap:18px}
+  .hero-ctas .btn{flex:1 1 100%}
+  .dir-chips{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;margin-inline:calc(-1 * var(--gutter));padding-inline:var(--gutter)}
+  .dir-chips::-webkit-scrollbar{display:none}
+  .dir-chip{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 16px;border-radius:999px;border:1px solid var(--line-strong);background:var(--surface);font-weight:500;font-size:14.5px;white-space:nowrap}
+  .dir-chip .mono{font-size:11.5px;color:var(--accent-ink)}
+  .dir{grid-template-columns:64px minmax(0,1fr) auto;gap:12px;padding:12px}
+  .dir-plate{width:64px;height:64px}
+  .dir-text{display:none}
+  .dir-go{width:36px;height:36px}
+}
+
+/* ---------- Sections ---------- */
+.sec{padding-block:clamp(64px,8.5vw,112px);border-top:1px solid var(--line)}
+.sec.band{background:var(--band)}
+.sec-head{display:grid;gap:16px 48px;margin-bottom:clamp(28px,4vw,52px)}
+.sec-head .lead{align-self:end}
+@media (min-width:981px){.sec-head{grid-template-columns:minmax(0,7fr) minmax(0,5fr);align-items:end}}
+.sec-head-title{display:grid;gap:16px}
+
+/* ---------- Catalog: prototype switch ---------- */
+.proto{display:flex;flex-wrap:wrap;align-items:center;gap:8px 10px;padding:10px 12px;margin-bottom:20px;border:1px dashed var(--line-strong);border-radius:16px}
+.proto-label{font:500 11px/1.3 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--faint);margin-right:6px}
+.proto-opt{min-height:40px;padding:0 14px;border-radius:999px;border:1px solid var(--line);background:var(--surface);cursor:pointer;font-size:13.5px;font-weight:500;color:var(--ink-2);transition:background-color .15s,color .15s,border-color .15s}
+.proto-opt[aria-checked="true"]{background:var(--ink);border-color:var(--ink);color:var(--on-ink)}
+@media (pointer:coarse){.proto-opt{min-height:44px}}
+.vlead{display:none}
+.catalog[data-variant="a"] .vlead-a,.catalog[data-variant="b"] .vlead-b,.catalog[data-variant="c"] .vlead-c{display:block}
+
+/* Variant A: tabs */
+.tabbar{display:none;position:sticky;top:calc(var(--header-h) + env(safe-area-inset-top,0px));z-index:30;background:var(--canvas);
+  padding-block:12px;margin-bottom:8px;gap:8px;overflow-x:auto;scrollbar-width:none;margin-inline:calc(-1 * var(--gutter));padding-inline:var(--gutter);border-bottom:1px solid var(--line)}
+.tabbar::-webkit-scrollbar{display:none}
+.catalog[data-variant="a"] .tabbar{display:flex}
+.tab{display:inline-flex;align-items:center;gap:10px;min-height:46px;padding:0 18px 0 16px;border-radius:999px;border:1px solid var(--line-strong);background:var(--surface);
+  cursor:pointer;font-weight:500;font-size:15px;color:var(--ink);white-space:nowrap;transition:background-color .18s var(--ease),color .18s var(--ease),border-color .18s var(--ease)}
+.tab .dot{width:8px;height:8px;border-radius:50%;background:var(--line-strong);transition:background-color .18s}
+.tab .cnt{font:500 12px/1 var(--f-mono);color:var(--faint)}
+.tab[aria-selected="true"]{background:var(--ink);color:var(--on-ink);border-color:var(--ink)}
+.tab[aria-selected="true"] .dot{background:var(--accent)}
+.tab[aria-selected="true"] .cnt{color:color-mix(in srgb,var(--on-ink) 70%,transparent)}
+@media (hover:hover){.tab[aria-selected="false"]:hover{border-color:var(--ink)}}
+.catalog[data-variant="a"] .panel:not(.is-active){display:none}
+.catalog[data-variant="a"] .panel.is-active{animation:panelIn .32s var(--ease)}
+@keyframes panelIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+
+/* Variant B: bento */
+.bento{display:none;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-bottom:24px}
+.catalog[data-variant="b"] .bento{display:grid}
+.bento-tile{display:grid;grid-template-rows:auto 1fr;border-radius:var(--r-lg);background:var(--surface);border:1px solid var(--line);overflow:hidden;transition:box-shadow .2s var(--ease),border-color .2s}
+.bento-media{position:relative;aspect-ratio:4/3;background:var(--plate);overflow:hidden}
+.bento-media>img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
+.bento-media.multi{display:grid;grid-template-columns:repeat(3,1fr);align-items:center;padding:8px}
+.bento-media.multi img{position:static;width:100%;height:auto;aspect-ratio:4/3;object-fit:contain}
+.bento-body{display:grid;gap:10px;padding:20px 22px 22px;align-content:start}
+.bento-top{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.bento-title{font:400 26px/1.1 var(--f-display);letter-spacing:-.015em}
+.bento-cnt{font:500 12.5px/1 var(--f-mono);color:var(--accent-ink)}
+.bento-list{display:grid;gap:4px;font-size:14.5px;color:var(--muted)}
+.bento-go{display:inline-flex;align-items:center;gap:6px;font-weight:500;font-size:14.5px;margin-top:6px}
+@media (hover:hover){.bento-tile:hover{box-shadow:var(--shadow);border-color:var(--line-strong)}}
+@media (max-width:980px){.bento{grid-template-columns:1fr}.bento-tile{grid-template-columns:40% 1fr;grid-template-rows:auto}.bento-media{aspect-ratio:auto;min-height:100%}}
+@media (max-width:520px){.bento-tile{grid-template-columns:1fr}.bento-media{aspect-ratio:16/9}}
+
+/* Variant C: neck finder */
+.neckbar{display:none;border:0;margin:0 0 24px;padding:20px;border-radius:var(--r-lg);background:var(--band);gap:14px}
+.catalog[data-variant="c"] .neckbar{display:grid}
+.neckbar legend{float:left;width:100%;padding:0;font:400 22px/1.2 var(--f-display);letter-spacing:-.01em;margin-bottom:4px}
+.neck-opts{display:flex;flex-wrap:wrap;gap:8px}
+.neck-opt{position:relative}
+.neck-opt input{position:absolute;opacity:0;inset:0;margin:0;cursor:pointer}
+.neck-opt span{display:inline-flex;align-items:center;gap:8px;min-height:46px;padding:0 18px;border-radius:999px;border:1px solid var(--line-strong);background:var(--surface);font-weight:500;font-size:15px;transition:background-color .15s,color .15s,border-color .15s}
+.neck-opt span small{font:500 11.5px/1 var(--f-mono);color:var(--faint)}
+.neck-opt input:checked + span{background:var(--ink);color:var(--on-ink);border-color:var(--ink)}
+.neck-opt input:checked + span small{color:color-mix(in srgb,var(--on-ink) 70%,transparent)}
+.neck-opt input:focus-visible + span{outline:2px solid var(--accent);outline-offset:3px}
+.neck-meta{display:flex;flex-wrap:wrap;gap:6px 18px;align-items:center;font-size:14px;color:var(--muted)}
+.neck-result{font:500 13px/1.4 var(--f-mono);color:var(--ink)}
+.neck-note{display:flex;gap:8px;align-items:flex-start}
+.neck-note .ic{color:var(--accent-ink);margin-top:1px}
+.is-filtered-out{display:none!important}
+.empty-note{display:none;padding:20px;border-radius:var(--r-md);border:1px dashed var(--line-strong);color:var(--muted);font-size:15px}
+.panel.is-empty .empty-note{display:block}
+
+/* ---------- Panels ---------- */
+.panel{padding-top:clamp(28px,3.5vw,44px)}
+.catalog[data-variant="b"] .panel+.panel,.catalog[data-variant="c"] .panel+.panel{margin-top:clamp(40px,5vw,72px);border-top:1px solid var(--line)}
+.panel-head{display:grid;gap:10px 40px;margin-bottom:28px}
+@media (min-width:981px){.panel-head{grid-template-columns:minmax(0,5fr) minmax(0,7fr);align-items:end}}
+.panel-head .h3{display:flex;align-items:baseline;gap:12px}
+.panel-head .h3 small{font:500 13px/1 var(--f-mono);color:var(--accent-ink);letter-spacing:0}
+.panel-head p{color:var(--muted);max-width:62ch}
+
+/* Product cards */
+.products{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+@media (max-width:1100px){.products{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:680px){.products{grid-template-columns:1fr}}
+.product{display:flex;flex-direction:column;border-radius:var(--r-lg);background:var(--surface);border:1px solid var(--line);overflow:hidden;min-width:0}
+.product-media{position:relative;aspect-ratio:1/1;background:var(--plate);overflow:hidden}
+.product-media img{width:100%;height:100%;object-fit:contain;transition:transform .5s var(--ease)}
+@media (hover:hover){.product:hover .product-media img{transform:scale(1.025)}}
+.badge-photo{position:absolute;top:14px;left:14px;padding:6px 10px;border-radius:999px;background:var(--photo-chip-bg);color:var(--photo-chip-fg);font:500 12px/1 var(--f-mono)}
+.dim{position:absolute;color:var(--plate-ink);font:500 11px/1 var(--f-mono);pointer-events:none}
+.dim b{font-weight:500;background:var(--plate);padding:2px 4px}
+.dim-h{top:13%;bottom:13%;right:18px;width:9px;border-right:1px solid currentColor;display:flex;align-items:center;justify-content:flex-end}
+.dim-h::before,.dim-h::after{content:"";position:absolute;right:-5px;width:9px;border-top:1px solid currentColor}
+.dim-h::before{top:0}.dim-h::after{bottom:0}
+.dim-h b{position:absolute;right:-1px;transform:translateX(50%) rotate(-90deg);white-space:nowrap}
+.dim-w{left:24%;right:24%;bottom:16px;height:9px;border-bottom:1px solid currentColor;display:flex;justify-content:center}
+.dim-w::before,.dim-w::after{content:"";position:absolute;bottom:-5px;height:9px;border-left:1px solid currentColor}
+.dim-w::before{left:0}.dim-w::after{right:0}
+.dim-w b{position:absolute;bottom:-6px}
+.product-body{display:flex;flex-direction:column;gap:16px;padding:22px 22px 20px;flex:1}
+.sku{font:500 12.5px/1 var(--f-mono);color:var(--accent-ink);letter-spacing:.02em}
+.product-title{font:400 23px/1.15 var(--f-display);letter-spacing:-.012em;margin-top:-8px}
+.product-title span{display:block;font:400 15px/1.4 var(--f-body);color:var(--muted);letter-spacing:0;margin-top:4px}
+.product-text{font-size:15px;line-height:1.55;color:var(--ink-2)}
+.keyspecs{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line)}
+.keyspecs div{padding:11px 0;border-bottom:1px solid var(--line);display:grid;gap:2px}
+.keyspecs div:nth-child(odd){padding-right:12px}
+.keyspecs div:nth-child(even){padding-left:12px;border-left:1px solid var(--line)}
+.keyspecs dt{font-size:12px;color:var(--faint)}
+.keyspecs dd{font:500 15px/1.3 var(--f-body);font-variant-numeric:tabular-nums}
+.mini-label{font-size:12px;color:var(--faint);margin-bottom:8px}
+.swatches{display:flex;flex-wrap:wrap;gap:6px 14px}
+.swatches li{display:inline-flex;align-items:center;gap:7px;font-size:14px}
+.sw{width:20px;height:20px;border-radius:50%;background:var(--sw);box-shadow:inset 0 0 0 1px rgba(0,0,0,.12),0 0 0 2px var(--surface),0 0 0 3px var(--line)}
+.colors-note{font-size:13px;color:var(--muted);margin-top:6px}
+.more{border-top:1px solid var(--line);padding-top:4px}
+.more summary,.opts summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;min-height:44px;font-weight:500;font-size:14.5px;color:var(--ink)}
+.more summary::-webkit-details-marker,.opts summary::-webkit-details-marker{display:none}
+.chev{width:10px;height:10px;border-right:1.6px solid currentColor;border-bottom:1.6px solid currentColor;transform:rotate(45deg) translate(-2px,-2px);transition:transform .2s var(--ease)}
+details[open]>summary .chev{transform:rotate(225deg) translate(-2px,-2px)}
+.spec-table{width:100%;border-collapse:collapse;font-size:14px;margin-bottom:12px}
+.spec-table th{font-weight:400;color:var(--muted);text-align:left;padding:8px 12px 8px 0;border-bottom:1px solid var(--line);width:55%}
+.spec-table td{font-weight:500;padding:8px 0;border-bottom:1px solid var(--line);font-variant-numeric:tabular-nums}
+.feats{display:grid;gap:6px;margin-bottom:8px}
+.feats li{display:flex;gap:8px;font-size:14px;color:var(--ink-2)}
+.feats .ic{width:18px;height:18px;color:var(--accent-ink);margin-top:2px}
+.product-actions{margin-top:auto;display:grid;gap:4px;justify-items:center}
+
+/* Closures */
+.note{display:flex;gap:10px;align-items:flex-start;padding:14px 16px;border-radius:var(--r-sm);background:var(--accent-soft);color:var(--ink-2);font-size:14.5px;margin-bottom:28px;max-width:860px}
+.note .ic{color:var(--accent-ink);margin-top:1px}
+.cat{display:grid;gap:20px 40px;padding-block:32px;border-top:1px solid var(--line)}
+@media (min-width:981px){.cat{grid-template-columns:minmax(0,4fr) minmax(0,8fr)}}
+.cat-info{display:grid;gap:14px;align-content:start}
+.cat-title{font:400 24px/1.15 var(--f-display);letter-spacing:-.012em;display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.cat-title small{font:500 12.5px/1 var(--f-mono);color:var(--accent-ink)}
+.cat-desc{font-size:15px;color:var(--muted)}
+.cat-specs{display:grid;border-top:1px solid var(--line)}
+.cat-specs div{display:flex;justify-content:space-between;gap:16px;padding:9px 0;border-bottom:1px solid var(--line);font-size:14px}
+.cat-specs dt{color:var(--muted)}
+.cat-specs dd{font-weight:500;text-align:right;font-variant-numeric:tabular-nums}
+.cat-info .btn{justify-self:start}
+.cat-pair{display:grid;gap:20px;border-top:1px solid var(--line);padding-top:32px}
+@media (min-width:981px){.cat-pair{grid-template-columns:1fr 1fr}}
+.cat-pair .cat{border-top:0;padding:24px;border-radius:var(--r-lg);background:var(--surface);border:1px solid var(--line);grid-template-columns:1fr}
+.models{display:grid;grid-template-columns:repeat(auto-fill,minmax(176px,1fr));gap:12px;align-content:start}
+.cat-pair .models{grid-template-columns:repeat(auto-fill,minmax(160px,1fr))}
+.model{display:grid;gap:6px;align-content:start;min-width:0}
+.model-media{position:relative;aspect-ratio:4/3;border-radius:var(--r-sm);background:var(--plate);overflow:hidden;display:grid;place-items:center}
+.model-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
+.nophoto{display:grid;justify-items:center;gap:6px;color:#6E7B8F;font-size:12.5px}
+.nophoto .ic{width:26px;height:26px}
+.model-sku{font:500 13px/1.3 var(--f-mono);color:var(--ink);margin-top:4px;overflow-wrap:anywhere}
+.model-lines{display:grid;gap:2px;font-size:13px;line-height:1.4;color:var(--muted)}
+.opts summary{min-height:40px;font-size:13px;color:var(--accent-ink);justify-content:flex-start;gap:8px}
+.opts summary::after{content:"+";font:500 14px/1 var(--f-mono)}
+.opts[open] summary::after{content:"–"}
+.opts-h{font-size:11.5px;color:var(--faint);text-transform:uppercase;letter-spacing:.06em;margin-top:6px}
+.opts ul{display:grid;gap:2px;font-size:13px;color:var(--ink-2);margin-top:2px}
+.opts li::before{content:"· ";color:var(--accent-ink)}
+@media (max-width:640px){
+  .cat>.models{grid-auto-flow:column;grid-auto-columns:64%;grid-template-columns:none;overflow-x:auto;scroll-snap-type:x mandatory;overscroll-behavior-x:contain;
+    margin-inline:calc(-1 * var(--gutter));padding-inline:var(--gutter);scroll-padding-inline:var(--gutter);padding-bottom:6px;scrollbar-width:thin}
+  .cat>.models>.model{scroll-snap-align:start}
+  .cat-pair .cat{padding:18px}
+  .cat-pair .models{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .swipe-hint{display:flex!important}
+}
+.swipe-hint{display:none;align-items:center;gap:6px;font:500 12px/1 var(--f-mono);color:var(--faint)}
+
+/* Kits */
+.kits{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+@media (max-width:860px){.kits{grid-template-columns:1fr}}
+.kit{display:grid;gap:14px;align-content:start;padding:22px;border-radius:var(--r-lg);background:var(--surface);border:1px solid var(--line)}
+.kit-parts{display:flex;align-items:flex-start;gap:8px;flex-wrap:wrap}
+.kit-part{display:grid;gap:6px;justify-items:center;width:112px}
+.kit-plate{position:relative;width:112px;height:112px;border-radius:var(--r-sm);background:var(--plate);overflow:hidden}
+.kit-plate img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
+.kit-cap{font-size:12px;color:var(--muted);text-align:center;line-height:1.3}
+.kit-plus{align-self:center;margin-top:-22px;color:var(--faint)}
+.kit-title{font:400 21px/1.2 var(--f-display);letter-spacing:-.01em}
+.kit-text{font-size:15px;color:var(--muted)}
+.kit .btn{justify-self:start;margin-top:4px}
+@media (max-width:420px){.kit-part{width:84px}.kit-plate{width:84px;height:84px}}
+
+/* ---------- Advantages ---------- */
+.adv{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 32px}
+@media (max-width:980px){.adv{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:600px){.adv{grid-template-columns:1fr}}
+.adv li{display:grid;grid-template-columns:44px 1fr;gap:16px;padding-block:24px;border-top:1px solid var(--line-strong)}
+.adv-ic{width:44px;height:44px;border-radius:12px;background:var(--surface);border:1px solid var(--line);display:grid;place-items:center;color:var(--accent-ink)}
+.adv h3{font:400 19px/1.25 var(--f-display);letter-spacing:-.01em;margin-bottom:6px}
+.adv p{font-size:15px;color:var(--muted)}
+
+/* ---------- Audience ---------- */
+.shots{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-bottom:40px}
+.shot{position:relative;border-radius:var(--r-md);overflow:hidden;aspect-ratio:4/3;background:var(--plate)}
+.shot img{width:100%;height:100%;object-fit:cover}
+.shot figcaption{position:absolute;left:12px;bottom:12px;padding:6px 11px;border-radius:999px;background:var(--photo-chip-bg);color:var(--photo-chip-fg);font:500 12.5px/1.2 var(--f-mono)}
+@media (max-width:760px){.shots{grid-auto-flow:column;grid-auto-columns:78%;grid-template-columns:none;overflow-x:auto;scroll-snap-type:x mandatory;margin-inline:calc(-1 * var(--gutter));padding-inline:var(--gutter);scroll-padding-inline:var(--gutter)}.shot{scroll-snap-align:start}}
+.segs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+@media (max-width:980px){.segs{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:560px){.segs{grid-template-columns:1fr}}
+.seg{display:grid;grid-template-columns:40px 1fr;gap:14px;padding:18px;border-radius:var(--r-md);background:var(--surface);border:1px solid var(--line)}
+.seg .ic{width:22px;height:22px}
+.seg-ic{width:40px;height:40px;border-radius:12px;background:var(--accent-soft);color:var(--accent-ink);display:grid;place-items:center}
+.seg h3{font:500 16px/1.3 var(--f-body);margin-bottom:4px}
+.seg p{font-size:14px;color:var(--muted)}
+.aud-cta{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;margin-top:28px;padding-top:24px;border-top:1px solid var(--line)}
+.aud-cta p{font-size:16px;color:var(--ink-2)}
+
+/* ---------- Process ---------- */
+.steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px;counter-reset:s}
+@media (max-width:980px){.steps{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:560px){.steps{grid-template-columns:1fr;gap:0}}
+.step{display:grid;gap:10px;align-content:start;padding-top:18px;border-top:1px solid var(--line-strong);position:relative}
+.step::before{content:"";position:absolute;top:-1px;left:0;width:40px;height:2px;background:var(--accent)}
+.step-n{font:500 13px/1 var(--f-mono);color:var(--accent-ink)}
+.step h3{font:400 21px/1.2 var(--f-display);letter-spacing:-.01em}
+.step p{font-size:15px;color:var(--muted)}
+@media (max-width:560px){.step{grid-template-columns:44px 1fr;column-gap:12px;padding-block:18px}.step-n{grid-row:1/3;padding-top:6px}}
+.steps-cta{margin-top:36px;display:flex;flex-wrap:wrap;gap:10px}
+
+/* ---------- Contacts & form ---------- */
+.contact-grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(24px,4vw,56px);align-items:start}
+@media (max-width:980px){.contact-grid{grid-template-columns:1fr}}
+.contact-copy{display:grid;gap:20px}
+.mcard{display:grid;gap:18px;padding:24px;border-radius:var(--r-lg);background:var(--surface);border:1px solid var(--line)}
+.mcard-top{display:flex;gap:14px;align-items:center}
+.mcard-top .avatar{width:52px;height:52px;font-size:15px}
+.mcard-name{font:400 22px/1.2 var(--f-display);letter-spacing:-.01em}
+.mcard-role{font-size:13.5px;color:var(--accent-ink);font-weight:500}
+.mcard-topics{font-size:14.5px;color:var(--muted)}
+.crow{display:grid;grid-template-columns:40px minmax(0,1fr) auto;gap:12px;align-items:center;padding-top:14px;border-top:1px solid var(--line)}
+.crow-ic{width:40px;height:40px;border-radius:12px;background:var(--band);display:grid;place-items:center;color:var(--ink)}
+.crow small{display:block;font-size:12px;color:var(--faint);margin-bottom:2px}
+.crow .val{font:500 17px/1.3 var(--f-mono);letter-spacing:-.01em;overflow-wrap:anywhere;user-select:all;-webkit-user-select:all}
+.crow .val.val-text{font:500 16px/1.35 var(--f-body);letter-spacing:0}
+.copy-btn{min-height:40px;padding:0 12px;border-radius:999px;border:1px solid var(--line-strong);background:var(--surface);display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:500;cursor:pointer;color:var(--ink);transition:background-color .15s,color .15s,border-color .15s}
+.copy-btn.is-done{background:var(--ok-soft);border-color:var(--ok);color:var(--ok)}
+@media (pointer:coarse){.copy-btn{min-height:44px}}
+.fcard{padding:clamp(20px,3vw,32px);border-radius:var(--r-xl);background:var(--surface);border:1px solid var(--line);box-shadow:var(--shadow);transition:box-shadow .3s var(--ease)}
+.fcard.is-flash{box-shadow:0 0 0 3px var(--accent),var(--shadow)}
+.fgrid{display:grid;grid-template-columns:1fr 1fr;gap:18px 16px}
+@media (max-width:600px){.fgrid{grid-template-columns:1fr}}
+.field{display:grid;gap:7px;min-width:0;align-content:start}
+.field.full{grid-column:1/-1}
+.field label,.field .flabel{font-size:14px;font-weight:500;color:var(--ink);display:flex;gap:8px;align-items:baseline}
+.field label small,.field .flabel small{font-weight:400;font-size:12.5px;color:var(--faint)}
+.req{color:var(--accent-ink)}
+.input{width:100%;min-height:52px;padding:12px 14px;border-radius:var(--r-xs);border:1px solid var(--line-strong);background:var(--canvas);color:var(--ink);
+  font:400 16px/1.4 var(--f-body);transition:border-color .15s,box-shadow .15s;-webkit-appearance:none;appearance:none}
+textarea.input{min-height:112px;resize:vertical}
+.input::placeholder{color:var(--faint);opacity:1}
+.input:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}
+.input[aria-invalid="true"]{border-color:var(--danger);box-shadow:0 0 0 3px var(--danger-soft)}
+.help{font-size:12.5px;color:var(--faint)}
+.err{display:flex;gap:6px;align-items:flex-start;font-size:13px;color:var(--danger)}
+.err .ic{width:16px;height:16px;margin-top:1px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;border:0;padding:0;margin:0}
+.chip{position:relative}
+.chip input{position:absolute;opacity:0;inset:0;margin:0;cursor:pointer}
+.chip span{display:inline-flex;align-items:center;gap:6px;min-height:44px;padding:0 16px;border-radius:999px;border:1px solid var(--line-strong);background:var(--canvas);font-size:14.5px;font-weight:500;transition:background-color .15s,color .15s,border-color .15s}
+.chip span .ic{width:16px;height:16px;display:none}
+.chip input:checked + span{background:var(--ink);color:var(--on-ink);border-color:var(--ink)}
+.chip input:checked + span .ic{display:block}
+.chip input:focus-visible + span{outline:2px solid var(--accent);outline-offset:3px}
+.fsubmit{display:grid;gap:12px;margin-top:22px}
+.fsubmit .btn{--h:54px;font-size:16px}
+.consent{font-size:12.5px;line-height:1.5;color:var(--faint)}
+.done{display:grid;gap:14px;justify-items:start;padding:8px 0}
+.done:focus{outline:none}
+.done-ic{width:56px;height:56px;border-radius:50%;background:var(--ok-soft);color:var(--ok);display:grid;place-items:center}
+.done-ic .ic{width:28px;height:28px;stroke-width:2}
+.done h3{font:400 28px/1.15 var(--f-display);letter-spacing:-.015em}
+.done p{color:var(--muted);max-width:52ch}
+.demo-note{font:400 12.5px/1.5 var(--f-mono);color:var(--faint);padding:10px 12px;border:1px dashed var(--line-strong);border-radius:10px}
+
+/* ---------- Footer ---------- */
+.footer{border-top:1px solid var(--line);padding-block:40px calc(32px + env(safe-area-inset-bottom,0px))}
+.fgrid-foot{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,3fr) minmax(0,4fr);gap:28px}
+@media (max-width:860px){.fgrid-foot{grid-template-columns:1fr}}
+.footer p,.footer li{font-size:14px;color:var(--muted)}
+.footer h3{font:500 12px/1 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--faint);margin-bottom:12px}
+.footer ul{display:grid;gap:2px}
+.footer a{display:inline-flex;min-height:36px;align-items:center}
+@media (hover:hover){.footer a:hover{color:var(--ink)}}
+.copy{margin-top:32px;padding-top:18px;border-top:1px solid var(--line);font-size:13px;color:var(--faint);display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px}
+
+/* ---------- Mobile action bar ---------- */
+.mbar{display:none}
+@media (max-width:900px){
+  .mbar{display:grid;grid-template-columns:1fr 1.5fr;gap:10px;position:fixed;left:0;right:0;bottom:0;z-index:50;
+    padding:10px var(--gutter) calc(10px + env(safe-area-inset-bottom,0px));background:color-mix(in srgb,var(--canvas) 92%,transparent);
+    -webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border-top:1px solid var(--line);transition:transform .28s var(--ease)}
+  .mbar.is-hidden{transform:translateY(110%)}
+  .mbar .btn{--h:50px;padding:0 12px}
+  body{padding-bottom:76px}
+}
+
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+}
+
+/* Final: request summary after the form */
+.lead-text{width:100%;margin:0;padding:14px 16px;border-radius:var(--r-sm);background:var(--canvas);border:1px solid var(--line-strong);
+  font:400 14px/1.55 var(--f-mono);color:var(--ink);white-space:pre-wrap;overflow-wrap:anywhere;max-height:280px;overflow:auto}
+.done-actions{display:flex;flex-wrap:wrap;gap:10px}
+.done .help a{color:var(--ink)}
+
+</style>
+</head>
+<body>
+<header class="site-header" id="top">
+  <div class="wrap hdr">
+    <a class="logo" href="#top" aria-label="ТАРАСВІТ, на початок сторінки">
+      <img class="logo-l" src="img/logo-light.webp" alt="ТАРАСВІТ" width="760" height="133">
+      <img class="logo-d" src="img/logo-dark.webp" alt="ТАРАСВІТ" width="760" height="133">
+    </a>
+    <nav class="nav" aria-label="Розділи">
+      <a href="#tara">Тара</a>
+      <a href="#ukuporka">Укупорка</a>
+      <a href="#komplekty">Комплекти</a>
+      <a href="#yak-zamovyty">Як замовити</a>
+      <a href="#kontakty">Контакти</a>
+    </nav>
+    <div class="hdr-right">
+      <a class="hdr-phone" href="tel:+380684778838">+380 68 477 88 38</a>
+      <a class="btn btn-primary btn-sm hdr-cta" href="#kontakty" data-lead="price">Отримати прайс</a>
+      <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="mnav" aria-label="Меню"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 7.5h16M4 12h16M4 16.5h16"/></svg></button>
+    </div>
+  </div>
+</header>
+<nav class="mnav" id="mnav" hidden aria-label="Меню">
+  <a class="mlink" href="#tara">Тара <svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+  <a class="mlink" href="#ukuporka">Укупорка <svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+  <a class="mlink" href="#komplekty">Комплекти <svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+  <a class="mlink" href="#yak-zamovyty">Як замовити <svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+  <a class="mlink" href="#kontakty">Контакти <svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+  <div class="mnav-foot">
+    <small class="help">Моренець Владислав, Менеджер з роботи з клієнтами</small>
+    <a class="mnav-phone" href="tel:+380684778838">+380 68 477 88 38</a>
+    <a class="btn btn-primary btn-block" href="#kontakty" data-lead="price">Отримати прайс</a>
+  </div>
+</nav>
+
+<main>
+<!-- 1. HERO + 2. DIRECTIONS -->
+<section class="hero" aria-labelledby="hero-title">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <p class="eyebrow">Виробник полімерної тари · м. Чернігів</p>
+      <h1 class="display" id="hero-title">HDPE-каністри власного виробництва та укупорка до них</h1>
+    </div>
+    <div class="hero-side">
+      <p class="lead">Тара 1 л і 5 л, кришки, дозатори, тригери та готові комплекти для побутової, професійної й автохімії. Комплектуємо під ваш продукт.</p>
+      <nav class="dir-chips" aria-label="Напрямки">
+        <a class="dir-chip" href="#tara">Тара <span class="mono">3</span></a>
+        <a class="dir-chip" href="#ukuporka">Укупорка <span class="mono">21</span></a>
+        <a class="dir-chip" href="#komplekty">Комплекти <span class="mono">4</span></a>
+      </nav>
+      <div class="hero-ctas">
+        <a class="btn btn-primary" href="#kontakty" data-lead="price">Отримати прайс</a>
+        <a class="btn btn-outline" href="#kontakty" data-lead="samples">Замовити зразки</a>
+      </div>
+      <div class="manager">
+        <span class="avatar" aria-hidden="true">МВ</span>
+        <div class="manager-meta">
+          <small>Зв’язатися з менеджером</small>
+          <div class="manager-line"><span>Моренець Владислав</span><a href="tel:+380684778838">+380 68 477 88 38</a></div>
+        </div>
+      </div>
+    </div>
+    <figure class="hero-media">
+      <img src="img/hero.webp" alt="Каністри ТАРАСВІТ: 1 л PETRA, 5 л ФОРТЕ та 5 л ФОРТЕ ПЛЮС з лійкою" width="2048" height="1536" fetchpriority="high">
+      <figcaption class="photo-chips"><span class="photo-chip">HDPE</span><span class="photo-chip">1 л · 5 л</span><span class="photo-chip">Горловина 28 / 38 мм</span></figcaption>
+    </figure>
+    <nav class="directions" id="napryamky" aria-label="Наші напрямки">
+      <a class="dir" href="#tara">
+        <span class="dir-plate"><img src="img/forte.webp" alt="" loading="lazy"></span>
+        <span class="dir-body"><span class="dir-top"><span class="dir-title">Тара</span><span class="dir-meta">3 моделі · 1 л / 5 л</span></span>
+          <span class="dir-text">HDPE-каністри для фасування побутової, професійної та автохімії. Доступні об’єми: 1 л та 5 л.</span></span>
+        <span class="dir-go" aria-hidden="true"><svg class="ic ic-sm" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span><span class="sr-only">Переглянути тару</span>
+      </a>
+      <a class="dir" href="#ukuporka">
+        <span class="dir-plate"><img src="img/cl/AH402.webp" alt="" loading="lazy"></span>
+        <span class="dir-body"><span class="dir-top"><span class="dir-title">Укупорка</span><span class="dir-meta">21 артикул</span></span>
+          <span class="dir-text">Кришки, дозатори, тригери-розпилювачі та інші комплектуючі для тари.</span></span>
+        <span class="dir-go" aria-hidden="true"><svg class="ic ic-sm" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span><span class="sr-only">Переглянути укупорку</span>
+      </a>
+      <a class="dir" href="#komplekty">
+        <span class="dir-plate"><img src="img/forte-plus.webp" alt="" loading="lazy"></span>
+        <span class="dir-body"><span class="dir-top"><span class="dir-title">Комплекти</span><span class="dir-meta">4 варіанти</span></span>
+          <span class="dir-text">Готові комплекти тари з укупоркою під ваш продукт і формат фасування.</span></span>
+        <span class="dir-go" aria-hidden="true"><svg class="ic ic-sm" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span><span class="sr-only">Підібрати комплект</span>
+      </a>
+    </nav>
+  </div>
+  <div class="wrap">
+    <ul class="spec-rail" aria-label="Коротко про продукцію">
+      <li>HDPE</li><li>Об’єми 1 л і 5 л</li><li>Горловина 28 і 38 мм</li><li>Поле під етикетку до 160 × 141 мм</li><li>Контроль першого відкриття на 5 л</li><li>Власне виробництво тари, Чернігів</li>
+    </ul>
+  </div>
+</section>
+
+<!-- 3–5. CATALOG -->
+<section class="sec catalog" id="catalog" data-variant="a" aria-labelledby="cat-title">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-head-title">
+        <p class="eyebrow">Каталог</p>
+        <h2 class="h2" id="cat-title">Тара, укупорка та комплекти</h2>
+      </div>
+      <div>
+        <p class="lead">Перемикайте напрямок вкладками. Ключові характеристики є в кожній картці, повні відкриваються в один дотик.</p>
+      </div>
+    </div>
+
+
+        <div class="tabbar" role="tablist" aria-label="Напрямки каталогу">
+      <button class="tab" role="tab" type="button" id="tab-tara" data-key="tara" aria-controls="tara" aria-selected="true"><span class="dot"></span>Тара<span class="cnt">3</span></button>
+      <button class="tab" role="tab" type="button" id="tab-ukuporka" data-key="ukuporka" aria-controls="ukuporka" aria-selected="false" tabindex="-1"><span class="dot"></span>Укупорка<span class="cnt">21</span></button>
+      <button class="tab" role="tab" type="button" id="tab-komplekty" data-key="komplekty" aria-controls="komplekty" aria-selected="false" tabindex="-1"><span class="dot"></span>Комплекти<span class="cnt">4</span></button>
+    </div>
+
+
+
+    <div class="panels">
+      <!-- TARA -->
+      <section class="panel is-active" id="tara" role="tabpanel" aria-labelledby="tara-title">
+        <div class="panel-head">
+          <h3 class="h3" id="tara-title">Тара <small>3 моделі</small></h3>
+          <p>HDPE-каністри 1 л і 5 л власного виробництва. Колір ковпака або кришки підбираємо під ваш продукт.</p>
+        </div>
+        <div class="products">
+<article class="product filterable" data-neck="28" id="p-petra">
+  <div class="product-media">
+    <img src="img/petra.webp" alt="Каністра 1 л «PETRA» з ручкою, біла, артикул TSP 1L" width="1600" height="2000" loading="lazy" decoding="async">
+    <span class="badge-photo">Ø 28 мм</span>
+    <span class="dim dim-h" aria-hidden="true"><b>277 мм</b></span>
+    <span class="dim dim-w" aria-hidden="true"><b>122 мм</b></span>
+  </div>
+  <div class="product-body">
+    <p class="sku">TSP 1L</p>
+    <h4 class="product-title">Каністра 1 л «PETRA» <span>з ручкою, біла</span></h4>
+    <p class="product-text">Компактна HDPE-каністра 1 л із ручкою та мірним ковпаком. Підходить для фасування побутової, професійної та автохімії. Має зручну площину під етикетку та прозору мірну смугу.</p>
+    <dl class="keyspecs"><div><dt>Об’єм</dt><dd>1 л / 1000 мл</dd></div><div><dt>Розміри</dt><dd>122 × 57 × 277 мм</dd></div><div><dt>Горловина</dt><dd>28 мм</dd></div><div><dt>Поле під етикетку</dt><dd>164,5 × 69 мм</dd></div></dl>
+    <div class="colors">
+      <p class="mini-label">Колір мірного ковпака</p>
+      <ul class="swatches"><li><span class="sw" style="--sw:#17191E"></span>чорний</li><li><span class="sw" style="--sw:#E0358C"></span>рожевий</li><li><span class="sw" style="--sw:#7A3DB0"></span>фіолетовий</li></ul>
+      
+    </div>
+    <details class="more">
+      <summary>Усі характеристики <span class="chev" aria-hidden="true"></span></summary>
+      <table class="spec-table"><tbody><tr><th scope="row">Матеріал</th><td>HDPE</td></tr><tr><th scope="row">Внутрішній діаметр горловини</th><td>22 мм</td></tr><tr><th scope="row">Тип ковпака</th><td>мірний, різьбовий</td></tr><tr><th scope="row">Вага</th><td>60 г</td></tr></tbody></table>
+      <ul class="feats"><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Герметичне закривання</span></li><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Зручна ручка для перенесення</span></li><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Прозора мірна смуга</span></li><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Зручна площина під етикетку</span></li><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Легка та компактна</span></li><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Міцний корпус із HDPE</span></li></ul>
+    </details>
+    <div class="product-actions">
+      <a class="btn btn-primary btn-block" href="#kontakty" data-lead="tara" data-item="Каністра 1 л «PETRA» з ручкою, біла (TSP 1L)">Замовити 1 л PETRA</a>
+      <a class="btn btn-text" href="#kontakty" data-lead="samples" data-item="Каністра 1 л «PETRA» з ручкою, біла (TSP 1L)">Запросити зразок <svg class="ic ic-sm" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+  </div>
+</article>
+<article class="product filterable" data-neck="38" id="p-forte">
+  <div class="product-media">
+    <img src="img/forte.webp" alt="Каністра 5 л «ФОРТЕ» з кришкою, артикул TSF 5L" width="1600" height="2000" loading="lazy" decoding="async">
+    <span class="badge-photo">Ø 38 мм</span>
+    <span class="dim dim-h" aria-hidden="true"><b>279,5 мм</b></span>
+    <span class="dim dim-w" aria-hidden="true"><b>200 мм</b></span>
+  </div>
+  <div class="product-body">
+    <p class="sku">TSF 5L</p>
+    <h4 class="product-title">Каністра 5 л «ФОРТЕ» <span>з кришкою</span></h4>
+    <p class="product-text">Міцна каністра 5 л для професійної та побутової хімії. Має зручну ручку, прозору мірну смугу, контроль першого відкриття та велике поле під етикетку.</p>
+    <dl class="keyspecs"><div><dt>Об’єм</dt><dd>5 л / 5000 мл</dd></div><div><dt>Розміри</dt><dd>200 × 125 × 279,5 мм</dd></div><div><dt>Горловина</dt><dd>38 мм</dd></div><div><dt>Поле під етикетку</dt><dd>160 × 141 мм</dd></div></dl>
+    <div class="colors">
+      <p class="mini-label">Колір кришки</p>
+      <ul class="swatches"><li><span class="sw" style="--sw:#17191E"></span>чорна</li><li><span class="sw" style="--sw:#C62A2F"></span>червона</li><li><span class="sw" style="--sw:#1F8A4C"></span>зелена</li></ul>
+      
+    </div>
+    <details class="more">
+      <summary>Усі характеристики <span class="chev" aria-hidden="true"></span></summary>
+      <table class="spec-table"><tbody><tr><th scope="row">Матеріал</th><td>HDPE</td></tr><tr><th scope="row">Внутрішній діаметр горловини</th><td>32 мм</td></tr><tr><th scope="row">Вага</th><td>175 г</td></tr></tbody></table>
+      <ul class="feats"><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Герметичне закривання</span></li><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Зручна ручка для перенесення</span></li><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Прозора мірна смуга</span></li><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Велике поле під етикетку</span></li><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Міцний корпус із HDPE</span></li><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Контроль першого відкриття</span></li></ul>
+    </details>
+    <div class="product-actions">
+      <a class="btn btn-primary btn-block" href="#kontakty" data-lead="tara" data-item="Каністра 5 л «ФОРТЕ» з кришкою (TSF 5L)">Замовити 5 л ФОРТЕ</a>
+      <a class="btn btn-text" href="#kontakty" data-lead="samples" data-item="Каністра 5 л «ФОРТЕ» з кришкою (TSF 5L)">Запросити зразок <svg class="ic ic-sm" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+  </div>
+</article>
+<article class="product filterable" data-neck="38" id="p-forte-plus">
+  <div class="product-media">
+    <img src="img/forte-plus.webp" alt="Каністра 5 л «ФОРТЕ ПЛЮС» з кришкою та лійкою, артикул TSF 5L-C" width="1600" height="2000" loading="lazy" decoding="async">
+    <span class="badge-photo">Ø 38 мм</span>
+    <span class="dim dim-h" aria-hidden="true"><b>279,5 мм</b></span>
+    <span class="dim dim-w" aria-hidden="true"><b>200 мм</b></span>
+  </div>
+  <div class="product-body">
+    <p class="sku">TSF 5L-C</p>
+    <h4 class="product-title">Каністра 5 л «ФОРТЕ ПЛЮС» <span>з кришкою та лійкою</span></h4>
+    <p class="product-text">Каністра 5 л із лійкою в комплекті. Зручна для продуктів, які треба переливати точно й чисто. Підходить для автохімії, професійної та побутової хімії.</p>
+    <dl class="keyspecs"><div><dt>Об’єм</dt><dd>5 л / 5000 мл</dd></div><div><dt>Розміри</dt><dd>200 × 125 × 279,5 мм</dd></div><div><dt>Горловина</dt><dd>38 мм</dd></div><div><dt>Поле під етикетку</dt><dd>160 × 141 мм</dd></div></dl>
+    <div class="colors">
+      <p class="mini-label">Колір кришки</p>
+      <ul class="swatches"><li><span class="sw" style="--sw:#17191E"></span>чорна</li><li><span class="sw" style="--sw:#C62A2F"></span>червона</li><li><span class="sw" style="--sw:#1F8A4C"></span>зелена</li></ul>
+      
+    </div>
+    <details class="more">
+      <summary>Усі характеристики <span class="chev" aria-hidden="true"></span></summary>
+      <table class="spec-table"><tbody><tr><th scope="row">Матеріал</th><td>HDPE</td></tr><tr><th scope="row">Внутрішній діаметр горловини</th><td>32 мм</td></tr><tr><th scope="row">Лійка</th><td>в комплекті</td></tr></tbody></table>
+      <ul class="feats"><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Герметичне закривання</span></li><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Зручна ручка для перенесення</span></li><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Прозора мірна смуга</span></li><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Велике поле під етикетку</span></li><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Міцний корпус із HDPE</span></li><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Контроль першого відкриття</span></li><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Лійка в комплекті</span></li></ul>
+    </details>
+    <div class="product-actions">
+      <a class="btn btn-primary btn-block" href="#kontakty" data-lead="tara" data-item="Каністра 5 л «ФОРТЕ ПЛЮС» з кришкою та лійкою (TSF 5L-C)">Замовити 5 л ФОРТЕ ПЛЮС</a>
+      <a class="btn btn-text" href="#kontakty" data-lead="samples" data-item="Каністра 5 л «ФОРТЕ ПЛЮС» з кришкою та лійкою (TSF 5L-C)">Запросити зразок <svg class="ic ic-sm" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+  </div>
+</article></div>
+      </section>
+
+      <!-- UKUPORKA -->
+      <section class="panel" id="ukuporka" role="tabpanel" aria-labelledby="uk-title">
+        <div class="panel-head">
+          <h3 class="h3" id="uk-title">Укупорка <small>21 артикул</small></h3>
+          <p>Підберемо укупорку під вашу тару та продукт: кришки, дозатори, тригери-розпилювачі й інші комплектуючі. Допоможемо сформувати готовий комплект для фасування.</p>
+        </div>
+        <p class="note"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="8.5"/><path d="M12 11v5.5M12 7.8v.4"/></svg><span>Укупорку постачаємо від партнерів-виробників. Перед замовленням перевіряємо типорозмір і сумісність різьби з вашою тарою.</span></p>
+
+        <div class="cat filterable-group" id="dozatory">
+          <div class="cat-info">
+            <h4 class="cat-title">Дозатори <small>9 моделей</small></h4>
+            <p class="cat-desc">Дозатори-помпи з дозуванням 2 або 4 мл за одне натискання. Стандарт горла 410.</p>
+            <dl class="cat-specs">
+              <div><dt>Дозування</dt><dd>2 або 4 мл</dd></div>
+              <div><dt>Діаметр горла</dt><dd>24, 28 або 33 мм</dd></div>
+              <div><dt>Трубка</dt><dd>160 мм або під замовлення</dd></div>
+              <div><dt>Поверхня кришки</dt><dd>гладка</dd></div>
+              <div><dt>Колір</dt><dd>білий або чорний, під замовлення</dd></div>
+            </dl>
+            <a class="btn btn-outline" href="#kontakty" data-lead="ukuporka" data-item="Дозатори">Дізнатися наявність <svg class="ic ic-sm" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            <p class="swipe-hint">Гортайте моделі <svg class="ic ic-sm" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></p>
+          </div>
+          <ul class="models"><li class="model filterable" data-neck="28">
+  <div class="model-media"><img src="img/cl/LP40-FS.webp" alt="Дозатор LP40-FS28/410S" width="800" height="600" loading="lazy" decoding="async"></div>
+  <p class="model-sku">LP40-FS28/410S</p>
+  <ul class="model-lines"><li>4 мл · Ø 28 мм · 410</li><li>Трубка 160 мм</li><li>Кришка гладка</li><li>Дозатор синій або чорний</li></ul>
+</li><li class="model filterable" data-neck="28">
+  <div class="model-media"><img src="img/cl/LP40-ES.webp" alt="Дозатор LP40-ES28/410S" width="800" height="600" loading="lazy" decoding="async"></div>
+  <p class="model-sku">LP40-ES28/410S</p>
+  <ul class="model-lines"><li>4 мл · Ø 28 мм · 410</li><li>Трубка 160 мм</li><li>Кришка гладка</li></ul>
+</li><li class="model filterable" data-neck="28 33">
+  <div class="model-media"><img src="img/cl/LP40-DS.webp" alt="Дозатор LP40-DS28/410S" width="800" height="600" loading="lazy" decoding="async"></div>
+  <p class="model-sku">LP40-DS28/410S</p>
+  <ul class="model-lines"><li>4 мл · Ø 28 або 33 мм · 410</li><li>Трубка під замовлення</li><li>Кришка гладка</li></ul>
+</li><li class="model filterable" data-neck="28 33">
+  <div class="model-media"><img src="img/cl/LP40-SS.webp" alt="Дозатор LP40-SS28/410S" width="800" height="600" loading="lazy" decoding="async"></div>
+  <p class="model-sku">LP40-SS28/410S</p>
+  <ul class="model-lines"><li>4 мл · Ø 28 або 33 мм · 410</li><li>Трубка під замовлення</li><li>Кришка гладка</li></ul>
+</li><li class="model filterable" data-neck="28 33">
+  <div class="model-media"><img src="img/cl/LP40-BS.webp" alt="Дозатор LP40-BS28/410S" width="800" height="600" loading="lazy" decoding="async"></div>
+  <p class="model-sku">LP40-BS28/410S</p>
+  <ul class="model-lines"><li>4 мл · Ø 28 або 33 мм · 410</li><li>Трубка під замовлення</li><li>Кришка гладка</li></ul>
+</li><li class="model filterable" data-neck="28 33">
+  <div class="model-media"><img src="img/cl/LP40-VS.webp" alt="Дозатор LP40-VS28/410S" width="800" height="600" loading="lazy" decoding="async"></div>
+  <p class="model-sku">LP40-VS28/410S</p>
+  <ul class="model-lines"><li>4 мл · Ø 28 або 33 мм · 410</li><li>Трубка під замовлення</li><li>Кришка гладка</li></ul>
+</li><li class="model filterable" data-neck="24 28">
+  <div class="model-media"><img src="img/cl/LP20-AS.webp" alt="Дозатор LP20-AS28/410S" width="800" height="600" loading="lazy" decoding="async"></div>
+  <p class="model-sku">LP20-AS28/410S</p>
+  <ul class="model-lines"><li>2 мл · Ø 24 або 28 мм · 410</li><li>Трубка під замовлення</li><li>Кришка гладка</li></ul>
+</li><li class="model filterable" data-neck="24 28">
+  <div class="model-media"><img src="img/cl/LP20-CS.webp" alt="Дозатор LP20-CS28/410S" width="800" height="600" loading="lazy" decoding="async"></div>
+  <p class="model-sku">LP20-CS28/410S</p>
+  <ul class="model-lines"><li>2 мл · Ø 24 або 28 мм · 410</li><li>Трубка під замовлення</li><li>Кришка гладка</li></ul>
+</li><li class="model filterable" data-neck="24 28">
+  <div class="model-media"><img src="img/cl/LP20-SS.webp" alt="Дозатор LP20-SS28/410S" width="800" height="600" loading="lazy" decoding="async"></div>
+  <p class="model-sku">LP20-SS28/410S</p>
+  <ul class="model-lines"><li>2 мл · Ø 24 або 28 мм · 410</li><li>Трубка під замовлення</li><li>Кришка гладка</li></ul>
+</li></ul>
+        </div>
+
+        <div class="cat filterable-group" id="tryhery">
+          <div class="cat-info">
+            <h4 class="cat-title">Тригери-розпилювачі <small>11 моделей</small></h4>
+            <p class="cat-desc">Тригери з дозуванням 1,2–1,4 мл. Насадки на розпил, струмінь і піну. Форма курка залежить від моделі.</p>
+            <dl class="cat-specs">
+              <div><dt>Дозування</dt><dd>1,2–1,4 мл</dd></div>
+              <div><dt>Горло</dt><dd>Ø 28 мм · 400/410</dd></div>
+              <div><dt>Трубка</dt><dd>260 мм</dd></div>
+              <div><dt>Кришка</dt><dd>ребриста</dd></div>
+              <div><dt>Колір</dt><dd>під замовлення</dd></div>
+            </dl>
+            <a class="btn btn-outline" href="#kontakty" data-lead="ukuporka" data-item="Тригери-розпилювачі">Дізнатися наявність <svg class="ic ic-sm" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            <p class="swipe-hint">Гортайте моделі <svg class="ic ic-sm" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></p>
+          </div>
+          <ul class="models"><li class="model filterable" data-neck="28">
+  <div class="model-media"><img src="img/cl/AH101.webp" alt="Тригер-розпилювач AH101" width="800" height="600" loading="lazy" decoding="async"></div>
+  <p class="model-sku">AH101</p>
+  <ul class="model-lines"></ul>
+  <details class="opts"><summary>Насадки: 5 · курок: 3</summary>
+    <p class="opts-h">Насадки</p><ul><li>розпил / струмінь</li><li>розпил / розпил</li><li>піна / розпил</li><li>піна / закрито</li><li>розпил / струмінь із захистом від дітей</li></ul>
+    <p class="opts-h">Форма курка</p><ul><li>плаский</li><li>під два пальці</li><li>довгий плаский</li></ul>
+  </details>
+</li><li class="model filterable" data-neck="28">
+  <div class="model-media"><img src="img/cl/AH102.webp" alt="Тригер-розпилювач AH102" width="800" height="600" loading="lazy" decoding="async"></div>
+  <p class="model-sku">AH102</p>
+  <ul class="model-lines"></ul>
+  <details class="opts"><summary>Насадки: 2 · курок: 3</summary>
+    <p class="opts-h">Насадки</p><ul><li>розпил / струмінь</li><li>піна / розпил</li></ul>
+    <p class="opts-h">Форма курка</p><ul><li>плаский</li><li>під два пальці</li><li>довгий плаский</li></ul>
+  </details>
+</li><li class="model filterable" data-neck="28">
+  <div class="model-media"><img src="img/cl/AH103.webp" alt="Тригер-розпилювач AH103" width="800" height="600" loading="lazy" decoding="async"></div>
+  <p class="model-sku">AH103</p>
+  <ul class="model-lines"></ul>
+  <details class="opts"><summary>Насадки: 4 · курок: 1</summary>
+    <p class="opts-h">Насадки</p><ul><li>розпил / струмінь</li><li>розпил / розпил</li><li>піна / закрито</li><li>піна / закрито з нейлоновою сіткою</li></ul>
+    <p class="opts-h">Форма курка</p><ul><li>під два пальці</li></ul>
+  </details>
+</li><li class="model filterable" data-neck="28">
+  <div class="model-media"><img src="img/cl/AH103B.webp" alt="Тригер-розпилювач AH103B" width="800" height="600" loading="lazy" decoding="async"></div>
+  <p class="model-sku">AH103B</p>
+  <ul class="model-lines"></ul>
+  <details class="opts"><summary>Насадки: 4 · курок: 1</summary>
+    <p class="opts-h">Насадки</p><ul><li>розпил / струмінь</li><li>розпил / розпил</li><li>піна / закрито</li><li>піна / закрито з нейлоновою сіткою</li></ul>
+    <p class="opts-h">Форма курка</p><ul><li>під два пальці</li></ul>
+  </details>
+</li><li class="model filterable" data-neck="28">
+  <div class="model-media"><img src="img/cl/AH104.webp" alt="Тригер-розпилювач AH104" width="800" height="600" loading="lazy" decoding="async"></div>
+  <p class="model-sku">AH104</p>
+  <ul class="model-lines"></ul>
+  <details class="opts"><summary>Насадки: 4 · курок: 1</summary>
+    <p class="opts-h">Насадки</p><ul><li>розпил / розпил</li><li>піна / розпил</li><li>піна / закрито із захистом від дітей</li><li>напівпіна / закрито із захистом від дітей</li></ul>
+    <p class="opts-h">Форма курка</p><ul><li>під два пальці</li></ul>
+  </details>
+</li><li class="model filterable" data-neck="28">
+  <div class="model-media"><img src="img/cl/AH201.webp" alt="Тригер-розпилювач AH201" width="800" height="600" loading="lazy" decoding="async"></div>
+  <p class="model-sku">AH201</p>
+  <ul class="model-lines"></ul>
+  <details class="opts"><summary>Насадки: 2 · курок: 2</summary>
+    <p class="opts-h">Насадки</p><ul><li>розпил / струмінь</li><li>піна / закрито</li></ul>
+    <p class="opts-h">Форма курка</p><ul><li>під два пальці (2 варіанти)</li></ul>
+  </details>
+</li><li class="model filterable" data-neck="28">
+  <div class="model-media"><img src="img/cl/AH402.webp" alt="Тригер-розпилювач AH402" width="800" height="600" loading="lazy" decoding="async"></div>
+  <p class="model-sku">AH402</p>
+  <ul class="model-lines"></ul>
+  <details class="opts"><summary>Насадки: 7 · курок: 4</summary>
+    <p class="opts-h">Насадки</p><ul><li>7 варіантів: розпил / струмінь, розпил / розпил, піна / розпил, піна / закрито</li></ul>
+    <p class="opts-h">Форма курка</p><ul><li>плаский</li><li>під два пальці</li><li>великий</li><li>під три пальці</li></ul>
+  </details>
+</li><li class="model filterable" data-neck="28">
+  <div class="model-media"><img src="img/cl/AH403.webp" alt="Тригер-розпилювач AH403" width="800" height="600" loading="lazy" decoding="async"></div>
+  <p class="model-sku">AH403</p>
+  <ul class="model-lines"></ul>
+  <details class="opts"><summary>Насадки: 7 · курок: 4</summary>
+    <p class="opts-h">Насадки</p><ul><li>7 варіантів: розпил / струмінь, розпил / розпил, піна / розпил, піна / закрито</li></ul>
+    <p class="opts-h">Форма курка</p><ul><li>плаский</li><li>під два пальці</li><li>великий</li><li>під три пальці</li></ul>
+  </details>
+</li><li class="model filterable" data-neck="28">
+  <div class="model-media"><img src="img/cl/AH407.webp" alt="Тригер-розпилювач AH407" width="800" height="600" loading="lazy" decoding="async"></div>
+  <p class="model-sku">AH407</p>
+  <ul class="model-lines"></ul>
+  <details class="opts"><summary>Насадки: 7 · курок: 4</summary>
+    <p class="opts-h">Насадки</p><ul><li>7 варіантів: розпил / струмінь, розпил / розпил, піна / розпил, піна / закрито</li></ul>
+    <p class="opts-h">Форма курка</p><ul><li>плаский</li><li>під два пальці</li><li>великий</li><li>під три пальці</li></ul>
+  </details>
+</li><li class="model filterable" data-neck="28">
+  <div class="model-media"><img src="img/cl/AH408.webp" alt="Тригер-розпилювач AH408" width="800" height="600" loading="lazy" decoding="async"></div>
+  <p class="model-sku">AH408</p>
+  <ul class="model-lines"></ul>
+  <details class="opts"><summary>Насадки: 7 · курок: 4</summary>
+    <p class="opts-h">Насадки</p><ul><li>7 варіантів: розпил / струмінь, розпил / розпил, піна / розпил, піна / закрито</li></ul>
+    <p class="opts-h">Форма курка</p><ul><li>плаский</li><li>під два пальці</li><li>великий</li><li>під три пальці</li></ul>
+  </details>
+</li><li class="model filterable" data-neck="28">
+  <div class="model-media"><img src="img/cl/AH410.webp" alt="Тригер-розпилювач AH410" width="800" height="600" loading="lazy" decoding="async"></div>
+  <p class="model-sku">AH410</p>
+  <ul class="model-lines"></ul>
+  <details class="opts"><summary>Насадки: 7 · курок: 4</summary>
+    <p class="opts-h">Насадки</p><ul><li>7 варіантів: розпил / струмінь, розпил / розпил, піна / розпил, піна / закрито</li></ul>
+    <p class="opts-h">Форма курка</p><ul><li>плаский</li><li>під два пальці</li><li>великий</li><li>під три пальці</li></ul>
+  </details>
+</li></ul>
+        </div>
+
+        <div class="cat-pair">
+          <div class="cat filterable-group" id="kryshky">
+            <div class="cat-info">
+              <h4 class="cat-title">Кришки <small>1 модель</small></h4>
+              <p class="cat-desc">Гвинтова кришка 38 мм з ребристою поверхнею. Діаметр збігається з горловиною каністр ФОРТЕ і ФОРТЕ ПЛЮС.</p>
+              <a class="btn btn-outline" href="#kontakty" data-lead="ukuporka" data-item="Кришка PSC 38-400">Дізнатися наявність <svg class="ic ic-sm" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            </div>
+            <ul class="models"><li class="model filterable" data-neck="38">
+  <div class="model-media"><img src="img/cap38.webp" alt="PSC 38-400" width="800" height="600" loading="lazy" decoding="async"></div>
+  <p class="model-sku">PSC 38-400</p>
+  <ul class="model-lines"><li>Ø горла 38 мм · стандарт 400</li><li>Поверхня ребриста</li><li>Кольори: чорний, червоний</li></ul>
+</li></ul>
+          </div>
+          <div class="cat filterable-group" id="inshi">
+            <div class="cat-info">
+              <h4 class="cat-title">Інші елементи <small>2 позиції</small></h4>
+              <p class="cat-desc">Комплектуючі, які входять до складу нашої тари.</p>
+              <a class="btn btn-outline" href="#kontakty" data-lead="ukuporka" data-item="Лійка / мірний ковпак">Дізнатися наявність <svg class="ic ic-sm" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            </div>
+            <ul class="models"><li class="model filterable" data-neck="38">
+  <div class="model-media"><img src="img/cl/spout.webp" alt="Лійка" width="800" height="600" loading="lazy" decoding="async"></div>
+  <p class="model-sku">Лійка</p>
+  <ul class="model-lines"><li>Входить у комплект каністри ФОРТЕ ПЛЮС (TSF 5L-C)</li><li>Для точного переливання</li></ul>
+</li><li class="model filterable" data-neck="28">
+  <div class="model-media"><img src="img/caps-petra.webp" alt="Мірний ковпак PETRA" width="800" height="600" loading="lazy" decoding="async"></div>
+  <p class="model-sku">Мірний ковпак PETRA</p>
+  <ul class="model-lines"><li>Різьбовий, для каністри 1 л PETRA</li><li>Кольори: чорний, рожевий, фіолетовий</li></ul>
+</li></ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- KITS -->
+      <section class="panel" id="komplekty" role="tabpanel" aria-labelledby="kit-title">
+        <div class="panel-head">
+          <h3 class="h3" id="kit-title">Комплекти <small>4 варіанти</small></h3>
+          <p>Зберемо комплект під ваш продукт: каністра + кришка, каністра + лійка, каністра + дозатор або інший варіант укупорки. Це зручно для запуску нової лінійки, тестування фасування або регулярних B2B-поставок.</p>
+        </div>
+        <div class="kits">
+<article class="kit filterable" data-neck="28" id="kit-petra">
+  <ul class="kit-parts"><li class="kit-part"><span class="kit-plate"><img src="img/petra.webp" alt="" loading="lazy" decoding="async"></span><span class="kit-cap">Каністра TSP 1L</span></li><li class="kit-plus" aria-hidden="true"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 5v14M5 12h14"/></svg></li><li class="kit-part"><span class="kit-plate"><img src="img/caps-petra.webp" alt="" loading="lazy" decoding="async"></span><span class="kit-cap">Мірний ковпак</span></li></ul>
+  <h4 class="kit-title">PETRA 1 л + мірний ковпак</h4>
+  <p class="kit-text">Для продуктів, які дозують ковпаком. Ковпак чорний, рожевий або фіолетовий.</p>
+  <a class="btn btn-outline" href="#kontakty" data-lead="komplekty" data-item="Комплект: PETRA 1 л + мірний ковпак">Підібрати комплект <svg class="ic ic-sm" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+</article>
+<article class="kit filterable" data-neck="38" id="kit-forte">
+  <ul class="kit-parts"><li class="kit-part"><span class="kit-plate"><img src="img/forte.webp" alt="" loading="lazy" decoding="async"></span><span class="kit-cap">Каністра TSF 5L</span></li><li class="kit-plus" aria-hidden="true"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 5v14M5 12h14"/></svg></li><li class="kit-part"><span class="kit-plate"><img src="img/cap38.webp" alt="" loading="lazy" decoding="async"></span><span class="kit-cap">Кришка 38 мм</span></li></ul>
+  <h4 class="kit-title">ФОРТЕ 5 л + кришка з контролем першого відкриття</h4>
+  <p class="kit-text">Базовий комплект для професійної та побутової хімії. Кришка чорна, червона або зелена.</p>
+  <a class="btn btn-outline" href="#kontakty" data-lead="komplekty" data-item="Комплект: ФОРТЕ 5 л + кришка з контролем першого відкриття">Підібрати комплект <svg class="ic ic-sm" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+</article>
+<article class="kit filterable" data-neck="38" id="kit-forte-plus">
+  <ul class="kit-parts"><li class="kit-part"><span class="kit-plate"><img src="img/forte-plus.webp" alt="" loading="lazy" decoding="async"></span><span class="kit-cap">Каністра TSF 5L-C</span></li><li class="kit-plus" aria-hidden="true"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 5v14M5 12h14"/></svg></li><li class="kit-part"><span class="kit-plate"><img src="img/cap38.webp" alt="" loading="lazy" decoding="async"></span><span class="kit-cap">Кришка 38 мм</span></li><li class="kit-plus" aria-hidden="true"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 5v14M5 12h14"/></svg></li><li class="kit-part"><span class="kit-plate"><img src="img/cl/spout.webp" alt="" loading="lazy" decoding="async"></span><span class="kit-cap">Лійка</span></li></ul>
+  <h4 class="kit-title">ФОРТЕ ПЛЮС 5 л + кришка + лійка</h4>
+  <p class="kit-text">Для автохімії, професійної та побутової хімії, де потрібне точне переливання.</p>
+  <a class="btn btn-outline" href="#kontakty" data-lead="komplekty" data-item="Комплект: ФОРТЕ ПЛЮС 5 л + кришка + лійка">Підібрати комплект <svg class="ic ic-sm" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+</article>
+<article class="kit filterable" data-neck="28 38" id="kit-custom">
+  <ul class="kit-parts"><li class="kit-part"><span class="kit-plate"><img src="img/cl/LP40-FS.webp" alt="" loading="lazy" decoding="async"></span><span class="kit-cap">Дозатор</span></li><li class="kit-plus" aria-hidden="true"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 5v14M5 12h14"/></svg></li><li class="kit-part"><span class="kit-plate"><img src="img/cl/AH402.webp" alt="" loading="lazy" decoding="async"></span><span class="kit-cap">Тригер</span></li><li class="kit-plus" aria-hidden="true"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 5v14M5 12h14"/></svg></li><li class="kit-part"><span class="kit-plate"><img src="img/cap38.webp" alt="" loading="lazy" decoding="async"></span><span class="kit-cap">Кришка</span></li></ul>
+  <h4 class="kit-title">Індивідуальний комплект</h4>
+  <p class="kit-text">Тара + дозатор, тригер або кришка під ваш продукт і формат фасування. Сумісність різьби перевіряємо до замовлення.</p>
+  <a class="btn btn-outline" href="#kontakty" data-lead="komplekty" data-item="Комплект: Індивідуальний комплект">Підібрати комплект <svg class="ic ic-sm" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+</article></div>
+      </section>
+    </div>
+  </div>
+</section>
+
+<!-- 6. ADVANTAGES -->
+<section class="sec band" id="perevagy" aria-labelledby="adv-title">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-head-title"><p class="eyebrow">Переваги</p><h2 class="h2" id="adv-title">Тара, яку зручно фасувати, маркувати й замовляти</h2></div>
+      <p class="lead">Факти про продукцію та сервіс, які впливають на ваше виробництво.</p>
+    </div>
+    <ul class="adv">
+      <li><span class="adv-ic"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 20.5V10l5.5 3.2V10l5.5 3.2V6.5l7 3.5v10.5z"/><path d="M7 17h2M12 17h2M17 17h1"/></svg></span><div><h3>Власне виробництво тари</h3><p>Каністри виготовляємо в Чернігові та контролюємо якість на всіх етапах.</p></div></li>
+      <li><span class="adv-ic"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3.5l8.5 4.5-8.5 4.5L3.5 8z"/><path d="M3.5 12.5l8.5 4.5 8.5-4.5"/><path d="M3.5 16.5l8.5 4.5 8.5-4.5"/></svg></span><div><h3>HDPE-матеріал</h3><p>Міцна тара для побутової, професійної та автохімії.</p></div></li>
+      <li><span class="adv-ic"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3.5" y="9" width="7" height="11.5" rx="2"/><path d="M5.5 9V6.5h3V9"/><rect x="13.5" y="12.5" width="7" height="8" rx="2"/><path d="M15.5 12.5v-2h3v2"/></svg></span><div><h3>Комплектація під замовлення</h3><p>Підберемо кришки, ковпаки, дозатори, тригери та лійки під ваші задачі.</p></div></li>
+      <li><span class="adv-ic"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3.5" y="5.5" width="17" height="13" rx="2"/><path d="M7 10h10M7 14h6"/></svg></span><div><h3>Поле під етикетку</h3><p>164,5 × 69 мм на каністрі 1 л і 160 × 141 мм на 5 л. Зручно для брендування й маркування.</p></div></li>
+      <li><span class="adv-ic"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="5" y="10.5" width="14" height="10" rx="2"/><path d="M8.5 10.5V8a3.5 3.5 0 0 1 7 0v2.5"/><path d="M12 14.5v2.5"/></svg></span><div><h3>Контроль першого відкриття</h3><p>На каністрах 5 л. Покупець бачить, що тару ще не відкривали.</p></div></li>
+      <li><span class="adv-ic"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 21s-6.5-5.8-6.5-11a6.5 6.5 0 0 1 13 0c0 5.2-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.4"/></svg></span><div><h3>Виробництво в Україні</h3><p>м. Чернігів. Ви спілкуєтесь напряму з менеджером виробника.</p></div></li>
+    </ul>
+  </div>
+</section>
+
+<!-- 7. AUDIENCE -->
+<section class="sec" id="dlya-koho" aria-labelledby="aud-title">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-head-title"><p class="eyebrow">Для кого</p><h2 class="h2" id="aud-title">Для кого наша тара</h2></div>
+      <p class="lead">Наша тара підходить для компаній, які фасують рідкі продукти та шукають надійне пакування з можливістю комплектації під свій бренд.</p>
+    </div>
+    <div class="shots">
+      <figure class="shot"><img src="img/seg-auto.webp" alt="Каністри 5 л на стелажі автосервісу" width="2048" height="1536" loading="lazy"><figcaption>Автохімія</figcaption></figure>
+      <figure class="shot"><img src="img/seg-home.webp" alt="Пляшки з мірними ковпаками та каністра у пральні" width="2048" height="1536" loading="lazy"><figcaption>Побутова хімія</figcaption></figure>
+      <figure class="shot"><img src="img/seg-fill.webp" alt="Каністри на лінії розливу" width="2048" height="1536" loading="lazy"><figcaption>Фасування</figcaption></figure>
+    </div>
+    <ul class="segs">
+      <li class="seg"><span class="seg-ic"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4.5 15.5l1.6-5a2 2 0 0 1 1.9-1.4h8a2 2 0 0 1 1.9 1.4l1.6 5"/><rect x="3.5" y="15.5" width="17" height="3.5" rx="1.2"/><path d="M6.5 19v1.5M17.5 19v1.5"/></svg></span><div><h3>Виробники автохімії</h3><p>Каністри 5 л, зокрема з лійкою для переливання.</p></div></li>
+      <li class="seg"><span class="seg-ic"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 11.2L12 4.5l8 6.7"/><path d="M6 9.8v10h12v-10"/><path d="M10 19.8v-5h4v5"/></svg></span><div><h3>Виробники побутової хімії</h3><p>1 л з мірним ковпаком для дозування, 5 л для великого фасування.</p></div></li>
+      <li class="seg"><span class="seg-ic"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3.5" y="7.5" width="17" height="12" rx="2"/><path d="M9 7.5V5.5h6v2M3.5 12.5h17"/></svg></span><div><h3>Виробники професійної хімії</h3><p>Каністри 5 л, тригери й дозатори для робочих розчинів.</p></div></li>
+      <li class="seg"><span class="seg-ic"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 18h18"/><rect x="5" y="9" width="4" height="9" rx="1"/><rect x="11" y="7" width="4" height="11" rx="1"/><path d="M17 18v-5h3.5"/><path d="M6 5.5h2M12 3.5h2"/></svg></span><div><h3>Контрактне фасування</h3><p>Повторні партії однієї моделі з однаковою укупоркою.</p></div></li>
+      <li class="seg"><span class="seg-ic"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3.5 6.5h10v9h-10z"/><path d="M13.5 9.5h4l3 3v3h-7"/><circle cx="7" cy="17.5" r="1.7"/><circle cx="17" cy="17.5" r="1.7"/></svg></span><div><h3>Дистриб’ютори тари та комплектуючих</h3><p>Тара й укупорка в одному замовленні.</p></div></li>
+      <li class="seg"><span class="seg-ic"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3.5l1.8 5 5 1.8-5 1.8-1.8 5-1.8-5-5-1.8 5-1.8z"/><path d="M18.5 15.5l.7 1.9 1.8.6-1.8.7-.7 1.8-.6-1.8-1.9-.7 1.9-.6z"/></svg></span><div><h3>Бренди з новою лінійкою</h3><p>Підбір тари й укупорки з нуля та зразки до запуску.</p></div></li>
+    </ul>
+    <div class="aud-cta">
+      <p>Не знайшли свою галузь? Опишіть продукт у заявці.</p>
+      <a class="btn btn-outline" href="#kontakty" data-lead="samples">Замовити зразки <svg class="ic ic-sm" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<!-- 8. PROCESS -->
+<section class="sec band" id="yak-zamovyty" aria-labelledby="proc-title">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-head-title"><p class="eyebrow">Як замовити</p><h2 class="h2" id="proc-title">Чотири кроки від заявки до відправки</h2></div>
+      <p class="lead">Ціна та строки залежать від моделі, комплектації й обсягу партії. Менеджер розраховує їх після уточнення деталей.</p>
+    </div>
+    <ol class="steps">
+      <li class="step"><span class="step-n">01</span><h3>Залишаєте заявку</h3><p>Вказуєте потрібну тару, укупорку або комплект.</p></li>
+      <li class="step"><span class="step-n">02</span><h3>Уточнюємо деталі</h3><p>Менеджер допомагає підібрати об’єм, кришку, колір і комплектацію.</p></li>
+      <li class="step"><span class="step-n">03</span><h3>Узгоджуємо замовлення</h3><p>Надаємо прайс, умови та доступні варіанти.</p></li>
+      <li class="step"><span class="step-n">04</span><h3>Відправляємо продукцію</h3><p>Готуємо замовлення та організовуємо відправку.</p></li>
+    </ol>
+    <div class="steps-cta">
+      <a class="btn btn-primary" href="#kontakty" data-lead="price">Отримати прайс</a>
+      <a class="btn btn-outline" href="#kontakty" data-lead="samples">Замовити зразки</a>
+    </div>
+  </div>
+</section>
+
+<!-- 9. CONTACTS + FORM -->
+<section class="sec" id="kontakty" aria-labelledby="ct-title">
+  <div class="wrap contact-grid">
+    <div class="contact-copy">
+      <p class="eyebrow">Контакти</p>
+      <h2 class="h2" id="ct-title">Залиште заявку</h2>
+      <p class="lead">Менеджер зв’яжеться з вами, уточнить потрібну тару, укупорку або комплект і надішле актуальний прайс.</p>
+      <div class="mcard">
+        <div class="mcard-top">
+          <span class="avatar" aria-hidden="true">МВ</span>
+          <div><p class="mcard-name">Моренець Владислав</p><p class="mcard-role">Менеджер з роботи з клієнтами</p></div>
+        </div>
+        <p class="mcard-topics">З питань співпраці, зразків і замовлення тари.</p>
+        <div class="crow">
+          <span class="crow-ic"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 4.5h3.2l1.6 4-2 1.3a10.5 10.5 0 0 0 6.4 6.4l1.3-2 4 1.6V19a1.5 1.5 0 0 1-1.6 1.5C10.3 20 4 13.7 3.5 6.1A1.5 1.5 0 0 1 5 4.5z"/></svg></span>
+          <div><small>Телефон</small><a class="val" href="tel:+380684778838">+380 68 477 88 38</a></div>
+          <button class="copy-btn" type="button" data-copy="+380684778838" aria-label="Скопіювати телефон"><svg class="ic ic-sm" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="8.5" y="8.5" width="11" height="11" rx="2"/><path d="M15.5 8.5V6a1.5 1.5 0 0 0-1.5-1.5H6A1.5 1.5 0 0 0 4.5 6v8A1.5 1.5 0 0 0 6 15.5h2.5"/></svg><span>Копіювати</span></button>
+        </div>
+        <div class="crow">
+          <span class="crow-ic"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3.5" y="5.5" width="17" height="13" rx="2"/><path d="M4 7l8 6 8-6"/></svg></span>
+          <div><small>E-mail</small><a class="val val-text" href="mailto:sales.tarasvit@gmail.com">sales.tarasvit@gmail.com</a></div>
+          <button class="copy-btn" type="button" data-copy="sales.tarasvit@gmail.com" aria-label="Скопіювати e-mail"><svg class="ic ic-sm" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="8.5" y="8.5" width="11" height="11" rx="2"/><path d="M15.5 8.5V6a1.5 1.5 0 0 0-1.5-1.5H6A1.5 1.5 0 0 0 4.5 6v8A1.5 1.5 0 0 0 6 15.5h2.5"/></svg><span>Копіювати</span></button>
+        </div>
+        <div class="crow">
+          <span class="crow-ic"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 21s-6.5-5.8-6.5-11a6.5 6.5 0 0 1 13 0c0 5.2-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.4"/></svg></span>
+          <div><small>Виробництво</small><span class="val val-text">м. Чернігів, Україна</span></div>
+          <span></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="fcard" id="formCard">
+      <form id="leadForm" novalidate>
+        <div class="fgrid">
+          <div class="field">
+            <label for="f-name">Ім’я <span class="req" aria-hidden="true">*</span></label>
+            <input class="input" id="f-name" name="name" type="text" autocomplete="name" placeholder="Як до вас звертатися" required aria-describedby="name-err">
+            <p class="err" id="name-err" hidden><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V13M12 16v.4"/></svg><span></span></p>
+          </div>
+          <div class="field">
+            <label for="f-phone">Телефон <span class="req" aria-hidden="true">*</span></label>
+            <input class="input tnum" id="f-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+380 __ ___ __ __" required aria-describedby="phone-help phone-err">
+            <p class="help" id="phone-help">Передзвонимо, щоб уточнити деталі</p>
+            <p class="err" id="phone-err" hidden><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V13M12 16v.4"/></svg><span></span></p>
+          </div>
+          <div class="field">
+            <label for="f-email">E-mail <small>необов’язково</small></label>
+            <input class="input" id="f-email" name="email" type="email" inputmode="email" autocomplete="email" placeholder="name@company.ua" aria-describedby="email-help email-err">
+            <p class="help" id="email-help">Надішлемо прайс на пошту</p>
+            <p class="err" id="email-err" hidden><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V13M12 16v.4"/></svg><span></span></p>
+          </div>
+          <div class="field">
+            <label for="f-company">Компанія <small>необов’язково</small></label>
+            <input class="input" id="f-company" name="company" type="text" autocomplete="organization" placeholder="Назва компанії або бренду">
+          </div>
+          <fieldset class="field full chips-field" style="border:0;padding:0;margin:0">
+            <legend class="flabel" style="padding:0;margin-bottom:8px">Що вас цікавить? <small>можна кілька</small></legend>
+            <div class="chips">
+              <label class="chip"><input type="checkbox" name="interest" value="tara" id="i-tara"><span><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Тара</span></label>
+              <label class="chip"><input type="checkbox" name="interest" value="ukuporka" id="i-ukuporka"><span><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Укупорка</span></label>
+              <label class="chip"><input type="checkbox" name="interest" value="komplekty" id="i-komplekty"><span><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Комплекти</span></label>
+              <label class="chip"><input type="checkbox" name="interest" value="price" id="i-price"><span><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Прайс</span></label>
+              <label class="chip"><input type="checkbox" name="interest" value="samples" id="i-samples"><span><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Зразки</span></label>
+            </div>
+          </fieldset>
+          <div class="field full">
+            <label for="f-comment">Коментар <small>необов’язково</small></label>
+            <textarea class="input" id="f-comment" name="comment" rows="4" placeholder="Продукт, орієнтовний обсяг партії, потрібна укупорка"></textarea>
+          </div>
+        </div>
+        <div class="fsubmit">
+          <button class="btn btn-primary btn-block" id="submitBtn" type="submit"><span class="btn-label">Сформувати заявку</span></button>
+          <p class="consent">Натискаючи кнопку, ви погоджуєтесь на обробку контактних даних для зв’язку щодо замовлення.</p>
+        </div>
+      </form>
+      <div class="done" id="leadDone" hidden tabindex="-1" aria-live="polite">
+        <span class="done-ic"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>
+        <h3>Заявку сформовано</h3>
+        <p>Залишився один крок: надішліть її менеджеру. Скопіюйте текст і відправте на sales.tarasvit@gmail.com або напишіть листа кнопкою нижче.</p>
+        <pre class="lead-text" id="leadText"></pre>
+        <div class="done-actions">
+          <button class="btn btn-primary" id="leadCopy" type="button"><svg class="ic ic-sm" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="8.5" y="8.5" width="11" height="11" rx="2"/><path d="M15.5 8.5V6a1.5 1.5 0 0 0-1.5-1.5H6A1.5 1.5 0 0 0 4.5 6v8A1.5 1.5 0 0 0 6 15.5h2.5"/></svg><span>Скопіювати заявку</span></button>
+          <a class="btn btn-outline" id="leadMail" href="mailto:sales.tarasvit@gmail.com"><svg class="ic ic-sm" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3.5" y="5.5" width="17" height="13" rx="2"/><path d="M4 7l8 6 8-6"/></svg>Написати на e-mail</a>
+        </div>
+        <p class="help">Або зателефонуйте: <a class="mono" href="tel:+380684778838">+380 68 477 88 38</a></p>
+        <button class="btn btn-text" id="leadAgain" type="button">Змінити заявку</button>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="fgrid-foot">
+      <div>
+        <a class="logo" href="#top" aria-label="ТАРАСВІТ, на початок сторінки"><img class="logo-l" src="img/logo-light.webp" alt="ТАРАСВІТ" width="760" height="133"><img class="logo-d" src="img/logo-dark.webp" alt="ТАРАСВІТ" width="760" height="133"></a>
+        <p style="margin-top:12px;max-width:40ch">HDPE-тара та укупорка. Власне виробництво каністр у Чернігові.</p>
+      </div>
+      <div>
+        <h3>Розділи</h3>
+        <ul><li><a href="#tara">Тара</a></li><li><a href="#ukuporka">Укупорка</a></li><li><a href="#komplekty">Комплекти</a></li><li><a href="#yak-zamovyty">Як замовити</a></li></ul>
+      </div>
+      <div>
+        <h3>Контакти</h3>
+        <ul><li>Моренець Владислав</li><li><a href="tel:+380684778838" class="mono">+380 68 477 88 38</a></li><li><a href="mailto:sales.tarasvit@gmail.com">sales.tarasvit@gmail.com</a></li><li>м. Чернігів, Україна</li></ul>
+      </div>
+    </div>
+    <div class="copy"><span>© 2026 ТАРАСВІТ</span><span>Ціни та наявність уточнюйте в менеджера</span></div>
+  </div>
+</footer>
+
+<div class="mbar" id="mbar">
+  <a class="btn btn-outline" href="tel:+380684778838"><svg class="ic ic-sm" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 4.5h3.2l1.6 4-2 1.3a10.5 10.5 0 0 0 6.4 6.4l1.3-2 4 1.6V19a1.5 1.5 0 0 1-1.6 1.5C10.3 20 4 13.7 3.5 6.1A1.5 1.5 0 0 1 5 4.5z"/></svg>Подзвонити</a>
+  <a class="btn btn-primary" href="#kontakty" data-lead="none">Залишити заявку</a>
+</div>
+
+<script>
+(() => {
+  const $ = (s, r = document) => r.querySelector(s);
+  const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* Header: hairline after scroll */
+  const header = $('.site-header');
+  const onScroll = () => header.classList.toggle('is-scrolled', window.scrollY > 8);
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  /* Mobile menu */
+  const menuBtn = $('#menuBtn');
+  const mnav = $('#mnav');
+  function setMenu(open) {
+    menuBtn.setAttribute('aria-expanded', String(open));
+    mnav.hidden = !open;
+    document.documentElement.classList.toggle('lock', open);
+    menuBtn.innerHTML = open
+      ? '<svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>'
+      : '<svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7.5h16M4 12h16M4 16.5h16"/></svg>';
+    if (open) { const first = $('a', mnav); if (first) first.focus({ preventScroll: true }); }
+  }
+  menuBtn.addEventListener('click', () => setMenu(menuBtn.getAttribute('aria-expanded') !== 'true'));
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && !mnav.hidden) { setMenu(false); menuBtn.focus(); }
+  });
+  window.addEventListener('resize', () => { if (window.innerWidth > 980 && !mnav.hidden) setMenu(false); });
+
+  /* Catalog tabs */
+  const catalog = $('#catalog');
+  const tabs = $$('.tab', catalog);
+  const panels = { tara: $('#tara'), ukuporka: $('#ukuporka'), komplekty: $('#komplekty') };
+  const sectionToPanel = { dozatory: 'ukuporka', tryhery: 'ukuporka', kryshky: 'ukuporka', inshi: 'ukuporka' };
+
+  function activate(key, focusTab) {
+    tabs.forEach((t) => {
+      const on = t.dataset.key === key;
+      t.setAttribute('aria-selected', String(on));
+      t.tabIndex = on ? 0 : -1;
+      if (on && focusTab) t.focus();
+    });
+    Object.entries(panels).forEach(([k, p]) => p.classList.toggle('is-active', k === key));
+  }
+  tabs.forEach((t, i) => {
+    t.addEventListener('click', () => activate(t.dataset.key));
+    t.addEventListener('keydown', (e) => {
+      let j = null;
+      if (e.key === 'ArrowRight') j = (i + 1) % tabs.length;
+      if (e.key === 'ArrowLeft') j = (i - 1 + tabs.length) % tabs.length;
+      if (e.key === 'Home') j = 0;
+      if (e.key === 'End') j = tabs.length - 1;
+      if (j !== null) { e.preventDefault(); activate(tabs[j].dataset.key, true); }
+    });
+  });
+
+  /* In-page navigation: catalog anchors open their tab */
+  function scrollToEl(el) {
+    el.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
+  }
+  function goTo(id) {
+    const panelKey = panels[id] ? id : sectionToPanel[id];
+    if (panelKey) {
+      activate(panelKey);
+      if (sectionToPanel[id]) { scrollToEl(document.getElementById(id)); return; }
+      scrollToEl($('.tabbar', catalog));
+      return;
+    }
+    const el = document.getElementById(id);
+    if (el) scrollToEl(el);
+  }
+  document.addEventListener('click', (e) => {
+    const a = e.target.closest('a[href^="#"]');
+    if (!a) return;
+    const id = a.getAttribute('href').slice(1);
+    if (!id) return;
+    if (!mnav.hidden) setMenu(false);
+    if (a.dataset.lead) { e.preventDefault(); prefill(a.dataset.lead, a.dataset.item || ''); return; }
+    if (!document.getElementById(id)) return;
+    e.preventDefault();
+    goTo(id);
+  });
+  if (location.hash) {
+    const id = location.hash.slice(1);
+    if (panels[id] || sectionToPanel[id]) setTimeout(() => goTo(id), 60);
+  }
+
+  /* CTA → form prefill */
+  const form = $('#leadForm');
+  const formCard = $('#formCard');
+  const comment = $('#f-comment');
+  function prefill(interest, item) {
+    if ($('#leadDone').hidden === false) { form.hidden = false; $('#leadDone').hidden = true; }
+    interest.split(',').forEach((v) => { const box = $(`#i-${v.trim()}`); if (box) box.checked = true; });
+    if (item) {
+      const line = `Цікавить: ${item}`;
+      if (!comment.value.trim() || comment.dataset.auto === '1') { comment.value = line; comment.dataset.auto = '1'; }
+      else if (!comment.value.includes(item)) { comment.value += `\n${line}`; }
+    }
+    scrollToEl(formCard);
+    const name = $('#f-name');
+    window.setTimeout(() => {
+      name.focus({ preventScroll: true });
+      if (!reduce) {
+        formCard.classList.add('is-flash');
+        window.setTimeout(() => formCard.classList.remove('is-flash'), 900);
+      }
+    }, reduce ? 0 : 450);
+  }
+  comment.addEventListener('input', () => { comment.dataset.auto = '0'; });
+
+  /* Validation */
+  const rules = {
+    name: (v) => v.trim().length >= 2 || 'Вкажіть ім’я, щоб менеджер знав, як до вас звертатися',
+    phone: (v) => {
+      const d = v.replace(/\D/g, '');
+      return (d.length === 12 && d.startsWith('380')) || (d.length === 10 && d.startsWith('0')) || 'Вкажіть номер у форматі +380 XX XXX XX XX';
+    },
+    email: (v) => !v.trim() || /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v.trim()) || 'Перевірте e-mail: потрібні @ і домен, наприклад name@company.ua'
+  };
+  function check(input) {
+    const rule = rules[input.name];
+    if (!rule) return true;
+    const res = rule(input.value);
+    const err = $(`#${input.name}-err`);
+    if (res === true) { input.removeAttribute('aria-invalid'); err.hidden = true; return true; }
+    input.setAttribute('aria-invalid', 'true');
+    $('span', err).textContent = res;
+    err.hidden = false;
+    return false;
+  }
+  function formatPhone(v) {
+    let d = v.replace(/\D/g, '');
+    if (d.startsWith('0')) d = '38' + d;
+    if (!d.startsWith('380') || d.length !== 12) return v;
+    return `+380 ${d.slice(3, 5)} ${d.slice(5, 8)} ${d.slice(8, 10)} ${d.slice(10, 12)}`;
+  }
+  ['name', 'phone', 'email'].forEach((n) => {
+    const input = form.elements[n];
+    input.addEventListener('blur', () => {
+      if (n === 'phone') {
+        if (input.value.trim() === '+380') input.value = '';
+        input.value = formatPhone(input.value);
+      }
+      if (input.value.trim()) check(input);
+    });
+    input.addEventListener('input', () => { if (input.getAttribute('aria-invalid')) check(input); });
+  });
+  form.elements.phone.addEventListener('focus', (e) => { if (!e.target.value) e.target.value = '+380 '; });
+
+  const LABELS = { tara: 'Тара', ukuporka: 'Укупорка', komplekty: 'Комплекти', price: 'Прайс', samples: 'Зразки' };
+  function buildLead() {
+    const f = form.elements;
+    const interests = $$('input[name="interest"]:checked', form).map((i) => LABELS[i.value]).filter(Boolean);
+    const lines = ['Заявка з сайту ТАРАСВІТ', '', `Ім’я: ${f.name.value.trim()}`, `Телефон: ${f.phone.value.trim()}`];
+    if (f.email.value.trim()) lines.push(`E-mail: ${f.email.value.trim()}`);
+    if (f.company.value.trim()) lines.push(`Компанія: ${f.company.value.trim()}`);
+    if (interests.length) lines.push(`Напрямки: ${interests.join(', ')}`);
+    if (f.comment.value.trim()) lines.push('', f.comment.value.trim());
+    return lines.join('\n');
+  }
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    form.elements.phone.value = formatPhone(form.elements.phone.value);
+    const bad = ['name', 'phone', 'email'].map((n) => form.elements[n]).filter((i) => !check(i));
+    if (bad.length) { bad[0].focus(); return; }
+    const text = buildLead();
+    $('#leadText').textContent = text;
+    const subject = `Заявка з сайту: ${form.elements.company.value.trim() || form.elements.name.value.trim()}`;
+    $('#leadMail').href = `mailto:sales.tarasvit@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(text)}`;
+    form.hidden = true;
+    const done = $('#leadDone');
+    done.hidden = false;
+    done.focus({ preventScroll: true });
+    scrollToEl(formCard);
+  });
+  $('#leadCopy').addEventListener('click', () => {
+    const btn = $('#leadCopy'); const label = $('span', btn);
+    const ok = () => { label.textContent = 'Скопійовано'; window.setTimeout(() => { label.textContent = 'Скопіювати заявку'; }, 1800); };
+    const fallback = () => {
+      const range = document.createRange(); range.selectNodeContents($('#leadText'));
+      const sel = window.getSelection(); sel.removeAllRanges(); sel.addRange(range);
+      label.textContent = 'Текст виділено, скопіюйте його';
+      window.setTimeout(() => { label.textContent = 'Скопіювати заявку'; }, 2400);
+    };
+    try {
+      if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText($('#leadText').textContent).then(ok, fallback);
+      else fallback();
+    } catch (err) { fallback(); }
+  });
+  $('#leadAgain').addEventListener('click', () => { form.hidden = false; $('#leadDone').hidden = true; $('#f-name').focus(); });
+
+  /* Copy buttons */
+  $$('.copy-btn').forEach((b) => {
+    b.addEventListener('click', () => {
+      const label = $('span', b);
+      const done = () => {
+        b.classList.add('is-done'); label.textContent = 'Скопійовано';
+        window.setTimeout(() => { b.classList.remove('is-done'); label.textContent = 'Копіювати'; }, 1600);
+      };
+      const fallback = () => {
+        const val = b.parentElement.querySelector('.val');
+        if (!val) return;
+        const range = document.createRange(); range.selectNodeContents(val);
+        const sel = window.getSelection(); sel.removeAllRanges(); sel.addRange(range);
+        label.textContent = 'Виділено';
+        window.setTimeout(() => { label.textContent = 'Копіювати'; }, 1600);
+      };
+      try {
+        if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(b.dataset.copy).then(done, fallback);
+        else fallback();
+      } catch (err) { fallback(); }
+    });
+  });
+
+  /* Mobile action bar: hide over the contact section and while typing */
+  const mbar = $('#mbar');
+  let inContacts = false; let typing = false;
+  const sync = () => mbar.classList.toggle('is-hidden', inContacts || typing);
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver((entries) => { entries.forEach((en) => { inContacts = en.isIntersecting; sync(); }); }, { threshold: 0.12 })
+      .observe($('#kontakty'));
+  }
+  document.addEventListener('focusin', (e) => { if (e.target.matches('input, textarea')) { typing = true; sync(); } });
+  document.addEventListener('focusout', (e) => { if (e.target.matches('input, textarea')) { typing = false; sync(); } });
+})();
+
+</script>
+</body>
+</html>
