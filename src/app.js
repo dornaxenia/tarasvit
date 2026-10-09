@@ -89,10 +89,24 @@
   const form = $('#leadForm');
   const formCard = $('#formCard');
   const comment = $('#f-comment');
+  const items = new Set(); // товари з кнопок, якими відвідувач прийшов до форми
+  function showPanel(which) {
+    form.hidden = which !== 'form';
+    $('#leadDone').hidden = which !== 'done';
+    $('#leadSent').hidden = which !== 'sent';
+  }
+  function clearRequest() {
+    $$('input[name="interest"]', form).forEach((b) => { b.checked = false; });
+    comment.value = ''; comment.dataset.auto = '0';
+    items.clear();
+  }
   function prefill(interest, item) {
-    if ($('#leadDone').hidden === false) { form.hidden = false; $('#leadDone').hidden = true; }
+    if (!$('#leadSent').hidden) clearRequest();
+    if (form.hidden) showPanel('form');
+    leadId = null;
     interest.split(',').forEach((v) => { const box = $(`#i-${v.trim()}`); if (box) box.checked = true; });
     if (item) {
+      items.add(item);
       const line = `Цікавить: ${item}`;
       if (!comment.value.trim() || comment.dataset.auto === '1') { comment.value = line; comment.dataset.auto = '1'; }
       else if (!comment.value.includes(item)) { comment.value += `\n${line}`; }
@@ -110,11 +124,20 @@
   comment.addEventListener('input', () => { comment.dataset.auto = '0'; });
 
   /* Validation */
+  // Цифри номера → 380XXXXXXXXX. Приймає 068…, 8068…, +380 068… (локальний номер після автопрефікса), +380 380…
+  function phoneDigits(v) {
+    let d = v.replace(/\D/g, '');
+    if (d.startsWith('380380')) d = d.slice(3);
+    if (d.length === 13 && d.startsWith('3800')) d = '380' + d.slice(4);
+    if (d.length === 11 && d.startsWith('80')) d = '3' + d;
+    if (d.length === 10 && d.startsWith('0')) d = '38' + d;
+    return d;
+  }
   const rules = {
     name: (v) => v.trim().length >= 2 || 'Вкажіть ім’я, щоб менеджер знав, як до вас звертатися',
     phone: (v) => {
-      const d = v.replace(/\D/g, '');
-      return (d.length === 12 && d.startsWith('380')) || (d.length === 10 && d.startsWith('0')) || 'Вкажіть номер у форматі +380 XX XXX XX XX';
+      const d = phoneDigits(v);
+      return (d.length === 12 && d.startsWith('380')) || 'Вкажіть номер у форматі +380 XX XXX XX XX';
     },
     email: (v) => !v.trim() || /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v.trim()) || 'Перевірте e-mail: потрібні @ і домен, наприклад name@company.ua'
   };
@@ -130,8 +153,7 @@
     return false;
   }
   function formatPhone(v) {
-    let d = v.replace(/\D/g, '');
-    if (d.startsWith('0')) d = '38' + d;
+    const d = phoneDigits(v);
     if (!d.startsWith('380') || d.length !== 12) return v;
     return `+380 ${d.slice(3, 5)} ${d.slice(5, 8)} ${d.slice(8, 10)} ${d.slice(10, 12)}`;
   }
@@ -149,9 +171,10 @@
   form.elements.phone.addEventListener('focus', (e) => { if (!e.target.value) e.target.value = '+380 '; });
 
   const LABELS = { tara: 'Тара', ukuporka: 'Укупорка', komplekty: 'Комплекти', price: 'Прайс', samples: 'Зразки' };
+  const interestList = () => $$('input[name="interest"]:checked', form).map((i) => LABELS[i.value]).filter(Boolean);
   function buildLead() {
     const f = form.elements;
-    const interests = $$('input[name="interest"]:checked', form).map((i) => LABELS[i.value]).filter(Boolean);
+    const interests = interestList();
     const lines = ['Заявка з сайту ТАРАСВІТ', '', `Ім’я: ${f.name.value.trim()}`, `Телефон: ${f.phone.value.trim()}`];
     if (f.email.value.trim()) lines.push(`E-mail: ${f.email.value.trim()}`);
     if (f.company.value.trim()) lines.push(`Компанія: ${f.company.value.trim()}`);
@@ -159,21 +182,105 @@
     if (f.comment.value.trim()) lines.push('', f.comment.value.trim());
     return lines.join('\n');
   }
-  form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    form.elements.phone.value = formatPhone(form.elements.phone.value);
-    const bad = ['name', 'phone', 'email'].map((n) => form.elements[n]).filter((i) => !check(i));
-    if (bad.length) { bad[0].focus(); return; }
+
+  /* Sending: Google Apps Script web app (data-endpoint). Empty endpoint = text-only mode. */
+  const endpoint = (form.dataset.endpoint || '').trim();
+  const live = /^https?:\/\//.test(endpoint);
+  const openedAt = Date.now();
+  const submitBtn = $('#submitBtn');
+  let leadId = null; // один ID на зміст заявки: повтор після збою не створює дубль у таблиці
+  let busy = false;
+  form.addEventListener('input', () => { leadId = null; });
+  form.addEventListener('change', () => { leadId = null; });
+  const newId = () => (window.crypto && crypto.randomUUID ? crypto.randomUUID()
+    : `${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 10)}`);
+
+  function payload() {
+    const f = form.elements;
+    const q = new URLSearchParams(location.search);
+    const data = {
+      id: leadId,
+      name: f.name.value.trim(),
+      phone: f.phone.value.trim(),
+      email: f.email.value.trim(),
+      company: f.company.value.trim(),
+      interests: interestList().join(', '),
+      comment: f.comment.value.trim(),
+      item: Array.from(items).join('; '),
+      page: location.href,
+      referrer: document.referrer,
+      website: f.website.value,
+      t: Date.now() - openedAt
+    };
+    ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'].forEach((k) => { data[k] = q.get(k) || ''; });
+    // Нерозривні пробіли (5 л, 38 мм) → звичайні, щоб у таблиці працювали пошук і фільтри.
+    Object.keys(data).forEach((k) => { if (typeof data[k] === 'string') data[k] = data[k].replace(/ /g, ' '); });
+    return data;
+  }
+  async function post(data) {
+    const ctrl = 'AbortController' in window ? new AbortController() : null;
+    const timer = ctrl ? window.setTimeout(() => ctrl.abort(), 15000) : 0;
+    try {
+      // Рядок у тілі = Content-Type text/plain: простий запит без preflight, Apps Script його приймає.
+      const res = await fetch(endpoint, { method: 'POST', body: JSON.stringify(data), redirect: 'follow', signal: ctrl ? ctrl.signal : undefined });
+      if (!res.ok) return false;
+      const json = await res.json();
+      return !!(json && json.ok === true);
+    } catch (err) {
+      return false;
+    } finally {
+      window.clearTimeout(timer);
+    }
+  }
+  function setBusy(on) {
+    busy = on;
+    submitBtn.disabled = on;
+    submitBtn.classList.toggle('is-loading', on);
+    form.setAttribute('aria-busy', String(on));
+    $('.btn-label', submitBtn).textContent = on ? 'Надсилаємо…' : (live ? 'Надіслати заявку' : 'Сформувати заявку');
+  }
+  function showText(mode) {
     const text = buildLead();
+    const done = $('#leadDone');
+    const failed = mode === 'error';
     $('#leadText').textContent = text;
     const subject = `Заявка з сайту: ${form.elements.company.value.trim() || form.elements.name.value.trim()}`;
     $('#leadMail').href = `mailto:sales.tarasvit@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(text)}`;
-    form.hidden = true;
-    const done = $('#leadDone');
-    done.hidden = false;
+    done.classList.toggle('is-error', failed);
+    $('#leadDoneTitle').textContent = failed ? 'Не вдалося надіслати заявку' : 'Заявку сформовано';
+    $('#leadDoneText').textContent = failed
+      ? 'Не отримали підтвердження від сервера. Спробуйте ще раз або надішліть заявку менеджеру на sales.tarasvit@gmail.com.'
+      : 'Залишився один крок: надішліть її менеджеру. Скопіюйте текст і відправте на sales.tarasvit@gmail.com або напишіть листа кнопкою нижче.';
+    $('#leadRetry').hidden = !failed;
+    $('#leadCopy').classList.toggle('btn-primary', !failed);
+    $('#leadCopy').classList.toggle('btn-outline', failed);
+    showPanel('done');
     done.focus({ preventScroll: true });
     scrollToEl(formCard);
+  }
+  function showSent() {
+    $('#leadSentText').textContent = `Менеджер зателефонує на ${form.elements.phone.value.trim()}, щоб уточнити деталі.`;
+    showPanel('sent');
+    const sent = $('#leadSent');
+    sent.focus({ preventScroll: true });
+    scrollToEl(formCard);
+  }
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    if (busy) return;
+    form.elements.phone.value = formatPhone(form.elements.phone.value);
+    const bad = ['name', 'phone', 'email'].map((n) => form.elements[n]).filter((i) => !check(i));
+    if (bad.length) { bad[0].focus(); return; }
+    if (!live) { showText('copy'); return; }
+    if (!leadId) leadId = newId();
+    setBusy(true);
+    const ok = await post(payload());
+    setBusy(false);
+    if (ok) { leadId = null; showSent(); } else showText('error');
   });
+  $('#leadRetry').addEventListener('click', () => { showPanel('form'); submitBtn.click(); });
+  $('#leadNew').addEventListener('click', () => { clearRequest(); showPanel('form'); $('#f-name').focus(); });
   $('#leadCopy').addEventListener('click', () => {
     const btn = $('#leadCopy'); const label = $('span', btn);
     const ok = () => { label.textContent = 'Скопійовано'; window.setTimeout(() => { label.textContent = 'Скопіювати заявку'; }, 1800); };
@@ -188,7 +295,7 @@
       else fallback();
     } catch (err) { fallback(); }
   });
-  $('#leadAgain').addEventListener('click', () => { form.hidden = false; $('#leadDone').hidden = true; $('#f-name').focus(); });
+  $('#leadAgain').addEventListener('click', () => { showPanel('form'); $('#f-name').focus(); });
 
   /* Copy buttons */
   $$('.copy-btn').forEach((b) => {

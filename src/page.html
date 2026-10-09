@@ -302,7 +302,11 @@
     </div>
 
     <div class="fcard" id="formCard">
-      <form id="leadForm" novalidate>
+      <form id="leadForm" novalidate data-endpoint="{{LEAD_ENDPOINT}}">
+        <div class="hp" aria-hidden="true">
+          <label for="f-website">Сайт</label>
+          <input id="f-website" name="website" type="text" tabindex="-1" autocomplete="off">
+        </div>
         <div class="fgrid">
           <div class="field">
             <label for="f-name">Ім’я <span class="req" aria-hidden="true">*</span></label>
@@ -341,16 +345,24 @@
           </div>
         </div>
         <div class="fsubmit">
-          <button class="btn btn-primary btn-block" id="submitBtn" type="submit"><span class="btn-label">Сформувати заявку</span></button>
+          <button class="btn btn-primary btn-block" id="submitBtn" type="submit"><span class="btn-label">{{SUBMIT_LABEL}}</span></button>
           <p class="consent">Натискаючи кнопку, ви погоджуєтесь на обробку контактних даних для зв’язку щодо замовлення.</p>
         </div>
       </form>
-      <div class="done" id="leadDone" hidden tabindex="-1" aria-live="polite">
+      <div class="done" id="leadSent" hidden tabindex="-1">
         <span class="done-ic">{{i:check}}</span>
-        <h3>Заявку сформовано</h3>
-        <p>Залишився один крок: надішліть її менеджеру. Скопіюйте текст і відправте на {{EMAIL}} або напишіть листа кнопкою нижче.</p>
+        <h3>Дякуємо, заявку прийнято</h3>
+        <p id="leadSentText">Менеджер зателефонує, щоб уточнити деталі.</p>
+        <p class="help">Терміново? Телефонуйте: <a class="mono" href="{{PHONE_HREF}}">{{PHONE}}</a></p>
+        <button class="btn btn-text" id="leadNew" type="button">Надіслати ще одну заявку</button>
+      </div>
+      <div class="done" id="leadDone" hidden tabindex="-1">
+        <span class="done-ic">{{i:check:ic-ok}}{{i:alert:ic-err}}</span>
+        <h3 id="leadDoneTitle">Заявку сформовано</h3>
+        <p id="leadDoneText">Залишився один крок: надішліть її менеджеру. Скопіюйте текст і відправте на {{EMAIL}} або напишіть листа кнопкою нижче.</p>
         <pre class="lead-text" id="leadText"></pre>
         <div class="done-actions">
+          <button class="btn btn-primary" id="leadRetry" type="button" hidden><span class="btn-label">Спробувати ще раз</span></button>
           <button class="btn btn-primary" id="leadCopy" type="button">{{i:copy:ic-sm}}<span>Скопіювати заявку</span></button>
           <a class="btn btn-outline" id="leadMail" href="mailto:{{EMAIL}}">{{i:mail:ic-sm}}Написати на e-mail</a>
         </div>

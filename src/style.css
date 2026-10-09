@@ -483,3 +483,10 @@ textarea.input{min-height:112px;resize:vertical}
   font:400 14px/1.55 var(--f-mono);color:var(--ink);white-space:pre-wrap;overflow-wrap:anywhere;max-height:280px;overflow:auto}
 .done-actions{display:flex;flex-wrap:wrap;gap:10px}
 .done .help a{color:var(--ink)}
+
+/* Lead form: honeypot, send states */
+.hp{position:absolute;left:-10000px;top:auto;width:1px;height:1px;overflow:hidden}
+.done-ic .ic-err{display:none}
+.done.is-error .done-ic{background:var(--danger-soft);color:var(--danger)}
+.done.is-error .ic-ok{display:none}
+.done.is-error .ic-err{display:block}

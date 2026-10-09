@@ -159,6 +159,8 @@ repl = {
     "{{PHONE}}": CONTACT["phone"], "{{PHONE_HREF}}": CONTACT["phone_href"],
     "{{EMAIL}}": CONTACT["email"], "{{PERSON}}": CONTACT["person"], "{{ROLE}}": CONTACT["role"],
     "{{CITY}}": CONTACT["city"], "{{TOPICS}}": CONTACT["topics"],
+    "{{LEAD_ENDPOINT}}": E(CONTACT.get("lead_endpoint", "").strip()),
+    "{{SUBMIT_LABEL}}": "Надіслати заявку" if CONTACT.get("lead_endpoint", "").strip() else "Сформувати заявку",
 }
 out = tpl
 for k, v in repl.items():
