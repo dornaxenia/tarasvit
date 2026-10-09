@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="2 15 106 106">
+<style>.n{fill:#012056}.t{fill:#00A5A4}@media (prefers-color-scheme:dark){.n{fill:#E6F2F2}.t{fill:#2FD0C2}}</style>
+<path class="n" fill-rule="evenodd" d="M41 126H18Q5 126 5 113V49L21 23Q22.6 20.5 25.5 20.5H65.5Q68.4 20.5 70 23L81 40Q82 42.5 79.5 43.5L67 49H17V64H36Q41 64 41 69ZM33 28H55A6 6 0 0 1 55 40H33A6 6 0 0 1 33 28Z"/>
+<path class="t" d="M59 76C61 59 79 46 99 43Q106 42 106 50V113Q106 126 93 126H49Q59 122 59 110Z"/>
+<rect class="t" x="80" y="15" width="23" height="11" rx="2.5"/>
+<rect class="n" x="79" y="30" width="25" height="8" rx="2"/>
+</svg>
