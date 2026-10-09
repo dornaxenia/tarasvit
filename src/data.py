@@ -12,7 +12,7 @@ CONTACT = {
     "topics": "З питань співпраці, зразків і замовлення тари",
     # URL веб-застосунку Google Apps Script (закінчується на /exec), див. README → «Заявки в Google Таблицю».
     # Порожньо: форма лише формує текст заявки (копіювати / e-mail). Заповнено: надсилає заявку в таблицю.
-    "lead_endpoint": "",
+    "lead_endpoint": "https://script.google.com/macros/s/AKfycbx7y8lZmZatVxyent9OMaz_5_fvezirCXBa_Ma7xozHkG_5JYiKt9OdBDXP2M2j0-0dvA/exec",
 }
 
 TARA = [
