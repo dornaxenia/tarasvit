@@ -113,3 +113,68 @@ KITS = [
      "parts": [("img/cl/LP40-FS.webp", "Дозатор"), ("img/cl/AH402.webp", "Тригер"), ("img/cap38.webp", "Кришка")],
      "text": "Тара + дозатор, тригер або кришка під ваш продукт і формат фасування. Сумісність різьби перевіряємо до замовлення."},
 ]
+
+# ---------------------------------------------------------------------------
+# v2 blocks (ported from 21st.dev patterns). Only facts already confirmed on the page.
+
+# Navy stats band under the hero (Stats Band pattern). Values for 21 / 4 are filled from the catalog in build.py.
+STATS = {
+    "eyebrow": "Коротко",
+    "title": "Тара й укупорка від одного виробника",
+    "note": "Цифри з каталогу на цій сторінці. Актуальну наявність уточнює менеджер.",
+    "items": [
+        {"value": "1 · 5", "unit": "л", "label": "об’єми каністр"},
+        {"value": "28 / 38", "unit": "мм", "label": "горловини"},
+        {"value": "{N_CL}", "unit": "", "label": "{W_CL} укупорки", "count": True},
+        {"value": "{N_KITS}", "unit": "", "label": "готові комплекти"},
+    ],
+}
+
+# "Переваги" as a bento grid (Feature Section with Bento Grid pattern): 2 wide + 2 narrow tiles, 6 old facts merged.
+# No AI factory photo here: real product shots only.
+ADV = [
+    {"size": "wide", "icon": "factory", "title": "Власне виробництво в Чернігові",
+     "text": "Виготовляємо HDPE-каністри самі й контролюємо якість на всіх етапах. Ви спілкуєтесь напряму з менеджером виробника.",
+     "media": "trio"},
+    {"size": "narrow", "icon": "label", "title": "Поле під етикетку",
+     "text": "Рівна площина для брендування й маркування.",
+     "figure": [("1 л", "164,5 × 69 мм"), ("5 л", "160 × 141 мм")]},
+    {"size": "narrow", "icon": "lock", "title": "Контроль першого відкриття",
+     "text": "На каністрах 5 л. Покупець бачить, що тару ще не відкривали.",
+     "media": "cap"},
+    {"size": "wide", "icon": "kit", "title": "Комплектація під ваш продукт",
+     "text": "Підберемо кришки, ковпаки, дозатори, тригери та лійки. Сумісність різьби перевіряємо до замовлення.",
+     "media": "closures"},
+]
+
+# "Для кого" as a tab switcher (Feature Tab Switcher pattern): segment list + panel with matching catalog items.
+SEGMENTS = [
+    {"id": "auto", "icon": "car", "title": "Виробники автохімії", "text": "Каністри 5 л, зокрема з лійкою для переливання.",
+     "img": "img/seg-auto.webp", "picks": [("p-forte-plus", "img/forte-plus.webp", "ФОРТЕ ПЛЮС 5 л з лійкою"), ("p-forte", "img/forte.webp", "ФОРТЕ 5 л"), ("tryhery", "img/cl/AH402.webp", "Тригери-розпилювачі")]},
+    {"id": "home", "icon": "home", "title": "Виробники побутової хімії", "text": "1 л з мірним ковпаком для дозування, 5 л для великого фасування.",
+     "img": "img/seg-home.webp", "picks": [("p-petra", "img/petra.webp", "PETRA 1 л з мірним ковпаком"), ("p-forte", "img/forte.webp", "ФОРТЕ 5 л")]},
+    {"id": "pro", "icon": "brief", "title": "Виробники професійної хімії", "text": "Каністри 5 л, тригери й дозатори для робочих розчинів.",
+     "img": "", "picks": [("p-forte", "img/forte.webp", "ФОРТЕ 5 л"), ("tryhery", "img/cl/AH402.webp", "Тригери-розпилювачі"), ("dozatory", "img/cl/LP40-FS.webp", "Дозатори")]},
+    {"id": "contract", "icon": "line", "title": "Контрактне фасування", "text": "Повторні партії однієї моделі з однаковою укупоркою.",
+     "img": "img/seg-fill.webp", "picks": [("komplekty", "img/forte.webp", "Готові комплекти"), ("p-forte", "img/forte.webp", "ФОРТЕ 5 л")]},
+    {"id": "dist", "icon": "truck", "title": "Дистриб’ютори тари та комплектуючих", "text": "Тара й укупорка в одному замовленні.",
+     "img": "", "picks": [("tara", "img/petra.webp", "Тара 1 л і 5 л"), ("ukuporka", "img/cap38.webp", "Укупорка")]},
+    {"id": "brand", "icon": "spark", "title": "Бренди з новою лінійкою", "text": "Підбір тари й укупорки з нуля та зразки до запуску.",
+     "img": "", "picks": [("kit-custom", "img/cl/LP40-FS.webp", "Індивідуальний комплект"), ("tara", "img/petra.webp", "Тара 1 л і 5 л")]},
+]
+
+# "Як замовити" as a scroll timeline (Scroll animated timeline pattern).
+STEPS = [
+    ("Залишаєте заявку", "Вказуєте потрібну тару, укупорку або комплект."),
+    ("Уточнюємо деталі", "Менеджер допомагає підібрати об’єм, кришку, колір і комплектацію."),
+    ("Узгоджуємо замовлення", "Надаємо прайс, умови та доступні варіанти."),
+    ("Відправляємо продукцію", "Готуємо замовлення та організовуємо відправку."),
+]
+
+# FAQ (Two-Column FAQ pattern). Only answers confirmed from the page; the rest waits for the client.
+FAQ = [
+    ("Як дізнатися ціну?", "Ціна залежить від моделі, комплектації та обсягу партії. Залиште заявку, менеджер надішле актуальний прайс."),
+    ("Яка мінімальна партія?", "Залежить від моделі та комплектації. Менеджер назве мінімальний обсяг під ваше замовлення."),
+    ("Чи підійде ваша укупорка до моєї тари?", "Кришки й дозатори під горловини 28 і 38 мм, частина дозаторів під 24 і 33 мм. Сумісність різьби перевіряємо до замовлення."),
+    ("Які кольори кришок і ковпаків?", "Мірний ковпак PETRA: чорний, рожевий, фіолетовий. Кришка ФОРТЕ і ФОРТЕ ПЛЮС: чорна, червона, зелена."),
+]
