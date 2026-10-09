@@ -57,7 +57,7 @@ def product_card(p):
     sw = "".join(f'<li><span class="sw" style="--sw:{c}"></span>{E(n)}</li>' for n, c in p["colors"])
     item = f'{p["title"]} {p["subtitle"]} ({p["sku"]})'
     return f'''
-<article class="product filterable" data-neck="{p["neck"]}" id="p-{p["id"]}">
+<article class="product filterable" data-rv-item data-neck="{p["neck"]}" id="p-{p["id"]}">
   <div class="product-media">
     <img src="{p["img"]}" alt="{E(p["title"])} {E(p["subtitle"])}, артикул {E(p["sku"])}" width="1600" height="2000" loading="lazy" decoding="async">
     <span class="badge-photo">Ø {p["neck"]} мм</span>
@@ -90,7 +90,7 @@ def model_tile(img, sku, lines, neck, extra="", alt=None):
     media = (f'<img src="{img}" alt="{E(alt or sku)}" width="800" height="600" loading="lazy" decoding="async">'
              if img else f'<span class="nophoto">{icon("photo")}<span>Фото на запит</span></span>')
     li = "".join(f'<li>{E(l)}</li>' for l in lines)
-    return f'''<li class="model filterable" data-neck="{neck}">
+    return f'''<li class="model filterable" data-rv-item data-neck="{neck}">
   <div class="model-media">{media}</div>
   <p class="model-sku">{E(sku)}</p>
   <ul class="model-lines">{li}</ul>{extra}
@@ -128,7 +128,7 @@ def kit_card(k):
             parts.append(f'<li class="kit-plus" aria-hidden="true">{icon("plus")}</li>')
         parts.append(f'<li class="kit-part"><span class="kit-plate"><img src="{img}" alt="" loading="lazy" decoding="async"></span><span class="kit-cap">{E(cap)}</span></li>')
     return f'''
-<article class="kit filterable" data-neck="{k["neck"]}" id="{k["id"]}">
+<article class="kit filterable" data-rv-item data-neck="{k["neck"]}" id="{k["id"]}">
   <ul class="kit-parts">{"".join(parts)}</ul>
   <h4 class="kit-title">{E(k["title"])}</h4>
   <p class="kit-text">{E(k["text"])}</p>
@@ -141,6 +141,13 @@ kits_html = "".join(kit_card(k) for k in KITS)
 css = open(os.path.join(HERE, 'style.css'), encoding='utf-8').read()
 js = open(os.path.join(HERE, 'app.js'), encoding='utf-8').read()
 tpl = open(os.path.join(HERE, 'page.html'), encoding='utf-8').read()
+
+# Animations: Motion subset bundle + src/fx.js -> ../fx.js, loaded with defer; ?v=hash busts the browser cache.
+import hashlib
+fx = (open(os.path.join(HERE, 'vendor', 'motion-13.4.2.mini.js'), encoding='utf-8').read().rstrip()
+      + '\n;\n' + open(os.path.join(HERE, 'fx.js'), encoding='utf-8').read())
+open(os.path.join(ROOT, 'fx.js'), 'w', encoding='utf-8').write(fx)
+FX_SRC = 'fx.js?v=' + hashlib.sha1(fx.encode('utf-8')).hexdigest()[:8]
 
 repl = {
     "{{CSS}}": css, "{{JS}}": js,
@@ -161,6 +168,7 @@ repl = {
     "{{CITY}}": CONTACT["city"], "{{TOPICS}}": CONTACT["topics"],
     "{{LEAD_ENDPOINT}}": E(CONTACT.get("lead_endpoint", "").strip()),
     "{{SUBMIT_LABEL}}": "Надіслати заявку" if CONTACT.get("lead_endpoint", "").strip() else "Сформувати заявку",
+    "{{FX_SRC}}": FX_SRC,
 }
 out = tpl
 for k, v in repl.items():

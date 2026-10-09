@@ -40,7 +40,13 @@
       t.tabIndex = on ? 0 : -1;
       if (on && focusTab) t.focus();
     });
-    Object.entries(panels).forEach(([k, p]) => p.classList.toggle('is-active', k === key));
+    let changed = null;
+    Object.entries(panels).forEach(([k, p]) => {
+      const on = k === key;
+      if (on && !p.classList.contains('is-active')) changed = p;
+      p.classList.toggle('is-active', on);
+    });
+    if (changed) document.dispatchEvent(new CustomEvent('tara:tabchange', { detail: { panel: changed } }));
   }
   tabs.forEach((t, i) => {
     t.addEventListener('click', () => activate(t.dataset.key));
@@ -264,6 +270,7 @@
     const sent = $('#leadSent');
     sent.focus({ preventScroll: true });
     scrollToEl(formCard);
+    document.dispatchEvent(new CustomEvent('tara:leadsent'));
   }
 
   form.addEventListener('submit', async (e) => {

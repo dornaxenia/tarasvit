@@ -3,10 +3,12 @@
 <link rel="icon" href="favicon.ico" sizes="32x32">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
+<script>(function(d){try{if(!matchMedia('(prefers-reduced-motion: reduce)').matches){d.classList.add('fx');setTimeout(function(){if(!window.__fx)d.classList.remove('fx')},3000)}}catch(e){}})(document.documentElement)</script>
+<script src="{{FX_SRC}}" defer></script>
 <meta name="description" content="ТАРАСВІТ: HDPE-каністри 1 л і 5 л власного виробництва в Чернігові, кришки, дозатори, тригери та готові комплекти для побутової, професійної й автохімії.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geologica:wght@300;400;500&family=Golos+Text:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geologica:wght@500&family=Golos+Text:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
 <style>
 {{CSS}}
 </style>
@@ -75,20 +77,20 @@
       <img src="img/hero.webp" alt="Каністри ТАРАСВІТ: 1 л PETRA, 5 л ФОРТЕ та 5 л ФОРТЕ ПЛЮС з лійкою" width="2048" height="1536" fetchpriority="high">
       <figcaption class="photo-chips"><span class="photo-chip">HDPE</span><span class="photo-chip">1 л · 5 л</span><span class="photo-chip">Горловина 28 / 38 мм</span></figcaption>
     </figure>
-    <nav class="directions" id="napryamky" aria-label="Наші напрямки">
-      <a class="dir" href="#tara">
+    <nav class="directions" id="napryamky" data-rv-group aria-label="Наші напрямки">
+      <a class="dir" data-rv-item href="#tara">
         <span class="dir-plate"><img src="img/forte.webp" alt="" loading="lazy"></span>
         <span class="dir-body"><span class="dir-top"><span class="dir-title">Тара</span><span class="dir-meta">3 моделі · 1 л / 5 л</span></span>
           <span class="dir-text">HDPE-каністри для фасування побутової, професійної та автохімії. Доступні об’єми: 1 л та 5 л.</span></span>
         <span class="dir-go" aria-hidden="true">{{i:arrow:ic-sm}}</span><span class="sr-only">Переглянути тару</span>
       </a>
-      <a class="dir" href="#ukuporka">
+      <a class="dir" data-rv-item href="#ukuporka">
         <span class="dir-plate"><img src="img/cl/AH402.webp" alt="" loading="lazy"></span>
         <span class="dir-body"><span class="dir-top"><span class="dir-title">Укупорка</span><span class="dir-meta">{{N_CL}} {{W_CL}}</span></span>
           <span class="dir-text">Кришки, дозатори, тригери-розпилювачі та інші комплектуючі для тари.</span></span>
         <span class="dir-go" aria-hidden="true">{{i:arrow:ic-sm}}</span><span class="sr-only">Переглянути укупорку</span>
       </a>
-      <a class="dir" href="#komplekty">
+      <a class="dir" data-rv-item href="#komplekty">
         <span class="dir-plate"><img src="img/forte-plus.webp" alt="" loading="lazy"></span>
         <span class="dir-body"><span class="dir-top"><span class="dir-title">Комплекти</span><span class="dir-meta">{{N_KITS}} варіанти</span></span>
           <span class="dir-text">Готові комплекти тари з укупоркою під ваш продукт і формат фасування.</span></span>
@@ -106,7 +108,7 @@
 <!-- 3–5. CATALOG -->
 <section class="sec catalog" id="catalog" data-variant="a" aria-labelledby="cat-title">
   <div class="wrap">
-    <div class="sec-head">
+    <div class="sec-head" data-rv>
       <div class="sec-head-title">
         <p class="eyebrow">Каталог</p>
         <h2 class="h2" id="cat-title">Тара, укупорка та комплекти</h2>
@@ -132,7 +134,7 @@
           <h3 class="h3" id="tara-title">Тара <small>3 моделі</small></h3>
           <p>HDPE-каністри 1 л і 5 л власного виробництва. Колір ковпака або кришки підбираємо під ваш продукт.</p>
         </div>
-        <div class="products">{{PRODUCTS}}</div>
+        <div class="products" data-rv-group>{{PRODUCTS}}</div>
       </section>
 
       <!-- UKUPORKA -->
@@ -157,7 +159,7 @@
             <a class="btn btn-outline" href="#kontakty" data-lead="ukuporka" data-item="Дозатори">Дізнатися наявність {{i:arrow:ic-sm}}</a>
             <p class="swipe-hint">Гортайте моделі {{i:arrow:ic-sm}}</p>
           </div>
-          <ul class="models">{{DOSATORS}}</ul>
+          <ul class="models" data-rv-group>{{DOSATORS}}</ul>
         </div>
 
         <div class="cat filterable-group" id="tryhery">
@@ -174,7 +176,7 @@
             <a class="btn btn-outline" href="#kontakty" data-lead="ukuporka" data-item="Тригери-розпилювачі">Дізнатися наявність {{i:arrow:ic-sm}}</a>
             <p class="swipe-hint">Гортайте моделі {{i:arrow:ic-sm}}</p>
           </div>
-          <ul class="models">{{TRIGGERS}}</ul>
+          <ul class="models" data-rv-group>{{TRIGGERS}}</ul>
         </div>
 
         <div class="cat-pair">
@@ -184,7 +186,7 @@
               <p class="cat-desc">Гвинтова кришка 38 мм з ребристою поверхнею. Діаметр збігається з горловиною каністр ФОРТЕ і ФОРТЕ ПЛЮС.</p>
               <a class="btn btn-outline" href="#kontakty" data-lead="ukuporka" data-item="Кришка PSC 38-400">Дізнатися наявність {{i:arrow:ic-sm}}</a>
             </div>
-            <ul class="models">{{CAPS}}</ul>
+            <ul class="models" data-rv-group>{{CAPS}}</ul>
           </div>
           <div class="cat filterable-group" id="inshi">
             <div class="cat-info">
@@ -192,7 +194,7 @@
               <p class="cat-desc">Комплектуючі, які входять до складу нашої тари.</p>
               <a class="btn btn-outline" href="#kontakty" data-lead="ukuporka" data-item="Лійка / мірний ковпак">Дізнатися наявність {{i:arrow:ic-sm}}</a>
             </div>
-            <ul class="models">{{OTHER}}</ul>
+            <ul class="models" data-rv-group>{{OTHER}}</ul>
           </div>
         </div>
       </section>
@@ -203,7 +205,7 @@
           <h3 class="h3" id="kit-title">Комплекти <small>{{N_KITS}} варіанти</small></h3>
           <p>Зберемо комплект під ваш продукт: каністра + кришка, каністра + лійка, каністра + дозатор або інший варіант укупорки. Це зручно для запуску нової лінійки, тестування фасування або регулярних B2B-поставок.</p>
         </div>
-        <div class="kits">{{KITS}}</div>
+        <div class="kits" data-rv-group>{{KITS}}</div>
       </section>
     </div>
   </div>
@@ -212,7 +214,7 @@
 <!-- 6. ADVANTAGES -->
 <section class="sec band" id="perevagy" aria-labelledby="adv-title">
   <div class="wrap">
-    <div class="sec-head">
+    <div class="sec-head" data-rv>
       <div class="sec-head-title"><p class="eyebrow">Переваги</p><h2 class="h2" id="adv-title">Тара, яку зручно фасувати, маркувати й замовляти</h2></div>
       <p class="lead">Факти про продукцію та сервіс, які впливають на ваше виробництво.</p>
     </div>
@@ -230,7 +232,7 @@
 <!-- 7. AUDIENCE -->
 <section class="sec" id="dlya-koho" aria-labelledby="aud-title">
   <div class="wrap">
-    <div class="sec-head">
+    <div class="sec-head" data-rv>
       <div class="sec-head-title"><p class="eyebrow">Для кого</p><h2 class="h2" id="aud-title">Для кого наша тара</h2></div>
       <p class="lead">Наша тара підходить для компаній, які фасують рідкі продукти та шукають надійне пакування з можливістю комплектації під свій бренд.</p>
     </div>
@@ -257,7 +259,7 @@
 <!-- 8. PROCESS -->
 <section class="sec band" id="yak-zamovyty" aria-labelledby="proc-title">
   <div class="wrap">
-    <div class="sec-head">
+    <div class="sec-head" data-rv>
       <div class="sec-head-title"><p class="eyebrow">Як замовити</p><h2 class="h2" id="proc-title">Чотири кроки від заявки до відправки</h2></div>
       <p class="lead">Ціна та строки залежать від моделі, комплектації й обсягу партії. Менеджер розраховує їх після уточнення деталей.</p>
     </div>
@@ -281,7 +283,7 @@
       <p class="eyebrow">Контакти</p>
       <h2 class="h2" id="ct-title">Залиште заявку</h2>
       <p class="lead">Менеджер зв’яжеться з вами, уточнить потрібну тару, укупорку або комплект і надішле актуальний прайс.</p>
-      <div class="mcard">
+      <div class="mcard" data-rv>
         <div class="mcard-top">
           <span class="avatar" aria-hidden="true">МВ</span>
           <div><p class="mcard-name">{{PERSON}}</p><p class="mcard-role">{{ROLE}}</p></div>
